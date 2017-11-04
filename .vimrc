@@ -11,14 +11,30 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
-Plugin 'godlygeek/tabular'
 
+" tab对齐
+Plugin 'godlygeek/tabular'
+" 括号成对
+Plugin 'chun-yang/auto-pairs'
+
+" python对齐, pe8 格式
+Plugin 'Vimjas/vim-python-pep8-indent'
+" Python 语法高亮
+Plugin 'hdima/python-syntax'
+
+" markdown编辑器及其实时查看
 Plugin 'plasticboy/vim-markdown'
 Plugin 'suan/vim-instant-markdown'
 
+" 前端emmet插件
 Plugin 'mattn/emmet-vim'
 
+" 语法检查
 Plugin 'scrooloose/syntastic'
+
+" 查看目录结构
+Plugin 'scrooloose/nerdtree'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -34,8 +50,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" 自定义
+" 插件配置项
 
+
+" 自定义
 set expandtab                " 设置tab键换空格
 set tabstop=4                " 设置tab键的宽度
 set shiftwidth=4             " 换行时行间交错使用4个空格
@@ -52,6 +70,7 @@ set nowrapscan               " 搜索到文件两端时不重新搜索
 " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 set tags=tags;/
 
+let python_highlight_all = 1
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
 
