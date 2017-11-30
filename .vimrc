@@ -77,8 +77,8 @@ syntax on                    " 开启文件类型侦测
 set encoding=utf-8
  
 " 映射键
-" inoremap jj <ESC>
-inoremap <space><space> <ESC>
+inoremap jj <ESC>
+" inoremap <space><space> <ESC>
 noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
 noremap <C-h> <C-w>h<CR>
