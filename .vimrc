@@ -67,6 +67,24 @@ set hlsearch                 " 开启高亮显示结果
 set incsearch                " 开启实时搜索功能
 set nowrapscan               " 搜索到文件两端时不重新搜索
 
+" 最大化当前(分割)窗口
+nnoremap <C-m> :call MaximizeToggle()<CR>
+function! MaximizeToggle()
+    if exists("s:maximize_session")
+        exec "source " . s:maximize_session
+        call delete(s:maximize_session)
+        unlet s:maximize_session
+        let &hidden=s:maximize_hidden_save
+        unlet s:maximize_hidden_save
+    else
+        let s:maximize_hidden_save = &hidden
+        let s:maximize_session = tempname()
+        set hidden
+        exec "mksession! " . s:maximize_session
+        only
+    endif
+endfunction
+
 " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 set tags=tags;/
 
