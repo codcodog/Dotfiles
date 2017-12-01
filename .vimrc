@@ -83,6 +83,7 @@ noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
 noremap <C-h> <C-w>h<CR>
 noremap <C-l> <C-w>l<CR>
+noremap <C-m> <C-w>o<CR>
 
 " 设置 ctrl+n 打开目录结构
 map <C-n> :NERDTreeToggle<CR>
