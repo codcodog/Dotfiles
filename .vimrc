@@ -66,6 +66,9 @@ set incsearch                " 查找book时，当输入/b时会自动找到
 set hlsearch                 " 开启高亮显示结果
 set incsearch                " 开启实时搜索功能
 set nowrapscan               " 搜索到文件两端时不重新搜索
+"一旦一行的字符超出80个的话就把那些字符的背景设为红色
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929 
+match OverLength /\%81v.\+/
 
 " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 set tags=tags;/
