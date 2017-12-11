@@ -9,9 +9,6 @@ if [ -f $HOME/.Xmodmap ]; then
     /usr/bin/xmodmap $HOME/.Xmodmap
 fi
 
-# ss-qt5
-exec ss-qt5 & 2>/dev/null
-
 # screen
 bash screen 2>/dev/null
 
