@@ -9,7 +9,4 @@ if [ -f $HOME/.Xmodmap ]; then
     /usr/bin/xmodmap $HOME/.Xmodmap
 fi
 
-# screen
-bash screen 2>/dev/null
-
 exec awesome
