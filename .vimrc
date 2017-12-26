@@ -35,6 +35,9 @@ Plugin 'scrooloose/syntastic'
 " 查看目录结构
 Plugin 'scrooloose/nerdtree'
 
+" 源码函数列表
+Plugin 'taglist.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
