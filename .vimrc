@@ -38,6 +38,9 @@ Plugin 'scrooloose/nerdtree'
 " 源码函数列表
 Plugin 'taglist.vim'
 
+" buffer 插件
+Plugin 'troydm/easybuffer.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -86,7 +89,7 @@ noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
 noremap <C-h> <C-w>h<CR>
 noremap <C-l> <C-w>l<CR>
-noremap <C-m> <C-w>o<CR>
+noremap <space><space> :EasyBuffer<CR>
 
 " 设置 ctrl+n 打开目录结构
 map <C-n> :NERDTreeToggle<CR>
@@ -94,7 +97,7 @@ map <C-n> :NERDTreeToggle<CR>
 "只有在是PHP文件时，才启用PHP补全
 au FileType php call AddPHPFuncList()
 function AddPHPFuncList()
-    set dictionary-=$HOME/.vim/function.txt dictionary+=$HOME/.vim/function.txt
+    set dictionary-=$HOME/.vim/doc/function.txt dictionary+=$HOME/.vim/doc/function.txt
     set complete-=k complete+=k
 endfunction
 
