@@ -90,9 +90,8 @@ noremap <C-k> <C-w>k<CR>
 noremap <C-h> <C-w>h<CR>
 noremap <C-l> <C-w>l<CR>
 noremap <space><space> :EasyBufferToggle<CR>
+noremap <C-n> :NERDTreeToggle<CR>
 
-" 设置 ctrl+n 打开目录结构
-map <C-n> :NERDTreeToggle<CR>
 
 "只有在是PHP文件时，才启用PHP补全
 au FileType php call AddPHPFuncList()
