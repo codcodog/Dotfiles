@@ -71,6 +71,9 @@ set clipboard=unnamedplus    " 设置系统粘贴版, vim需要支持clipboard�
 set encoding=utf-8           " 设置字符编码
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 
+" 缩写
+iabbrev #s // ------------------------------------------------------------------------
+
 let python_highlight_all = 1
 filetype off                 " required
 syntax enable                " 打开语法高亮
