@@ -72,7 +72,7 @@ set encoding=utf-8           " 设置字符编码
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 
 " 缩写
-iabbrev #s // ------------------------------------------------------------------------
+iabbrev #s // ------------------------------------------------------------------------<CR><ESC>
 
 let python_highlight_all = 1
 filetype off                 " required
