@@ -1,3 +1,6 @@
+set nocompatible             " 禁止vim在vi兼容模式
+filetype off                 " required
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -54,7 +57,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " 自定义
-set nocompatible             " 禁止vim在vi兼容模式
 set expandtab                " 设置tab键换空格
 set tabstop=4                " 设置tab键的宽度
 set shiftwidth=4             " 换行时行间交错使用4个空格
@@ -75,11 +77,11 @@ set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文�
 iabbrev #s // ------------------------------------------------------------------------<CR><ESC>
 
 let python_highlight_all = 1
-filetype off                 " required
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
  
 " 映射键
+let mapleader=','   " 设置 <leader> 键
 inoremap jj <ESC>
 noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
@@ -91,6 +93,7 @@ let g:easybuffer_toggle_position = 'BotRight'
 noremap <space><space> :EasyBufferToggle<CR>
 
 noremap <C-n> :NERDTreeToggle<CR>
+noremap <leader>t :TlistToggle<CR>
 
 "只有在是PHP文件时，才启用PHP补全
 au FileType php call AddPHPFuncList()
