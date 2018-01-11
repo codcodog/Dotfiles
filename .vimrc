@@ -87,15 +87,15 @@ noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
 noremap <C-h> <C-w>h<CR>
 noremap <C-l> <C-w>l<CR>
-noremap <leader>o :only<CR>
+noremap <space><space> :ls<CR>
+noremap <C-n> :NERDTreeToggle<CR>
 
 " 定义 easybuffer 插件弹出的窗口位置及映射热键
 " let g:easybuffer_toggle_position = 'BotRight'
 " noremap <space><space> :EasyBufferToggle<CR>
-noremap <space><space> :ls<CR>
 
-noremap <C-n> :NERDTreeToggle<CR>
 noremap <leader>t :TlistToggle<CR>
+noremap <leader>o :only<CR>
 
 "只有在是PHP文件时，才启用PHP补全
 au FileType php call AddPHPFuncList()
