@@ -72,6 +72,7 @@ set nowrapscan               " 搜索到文件两端时不重新搜索
 set clipboard=unnamedplus    " 设置系统粘贴版, vim需要支持clipboard特性(Arch系统，需要安装gvim)
 set encoding=utf-8           " 设置字符编码
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
+set laststatus=2             " 总是显示状态栏
 
 " 缩写
 iabbrev #s // ------------------------------------------------------------------------<CR><ESC>
