@@ -81,19 +81,19 @@ syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
  
 " 映射键
-let mapleader=','   " 设置 <leader> 键
 inoremap jj <ESC>
 noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
 noremap <C-h> <C-w>h<CR>
 noremap <C-l> <C-w>l<CR>
-noremap <space><space> :ls<CR>
+noremap <space><space> :CtrlPBuffer<CR>
 noremap <C-n> :NERDTreeToggle<CR>
 
 " 定义 easybuffer 插件弹出的窗口位置及映射热键
 " let g:easybuffer_toggle_position = 'BotRight'
 " noremap <space><space> :EasyBufferToggle<CR>
 
+let mapleader=','   " 设置 <leader> 键
 noremap <leader>t :TlistToggle<CR>
 noremap <leader>o :only<CR>
 
