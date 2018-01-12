@@ -89,10 +89,6 @@ noremap <C-l> <C-w>l<CR>
 noremap <space><space> :CtrlPBuffer<CR>
 noremap <C-n> :NERDTreeToggle<CR>
 
-" 定义 easybuffer 插件弹出的窗口位置及映射热键
-" let g:easybuffer_toggle_position = 'BotRight'
-" noremap <space><space> :EasyBufferToggle<CR>
-
 let mapleader=','   " 设置 <leader> 键
 noremap <leader>t :TlistToggle<CR>
 noremap <leader>o :only<CR>
