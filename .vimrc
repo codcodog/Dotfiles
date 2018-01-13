@@ -89,6 +89,10 @@ noremap <C-h> <C-w>h<CR>
 noremap <C-l> <C-w>l<CR>
 noremap <space><space> :CtrlPBuffer<CR>
 noremap <C-n> :NERDTreeToggle<CR>
+nnoremap <Left> :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+nnoremap <Up> :resize -2<CR>
+nnoremap <Down> :resize +2<CR>
 
 let mapleader=','   " 设置 <leader> 键
 noremap <leader>t :TlistToggle<CR>
