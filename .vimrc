@@ -87,18 +87,27 @@ noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
 noremap <C-h> <C-w>h<CR>
 noremap <C-l> <C-w>l<CR>
-noremap <space><space> :CtrlPBuffer<CR>
-noremap <C-n> :NERDTreeToggle<CR>
 nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 nnoremap <Up> :resize -2<CR>
 nnoremap <Down> :resize +2<CR>
 
+" 插件热键
+noremap <space><space> :CtrlPBuffer<CR>
+noremap <C-n> :NERDTreeToggle<CR>
+
+" <leader> 配置
 let mapleader=','   " 设置 <leader> 键
-noremap <leader>t :TlistToggle<CR>
 noremap <leader>o :only<CR>
 
-"只有在是PHP文件时，才启用PHP补全
+" taglist 配置
+let Tlist_Show_One_File           = 1           " To display the tags for only the current active buffer
+let Tlist_Use_Right_Window        = 1           " To use a vertically split taglist window on the rightmost side of the Vim window
+let Tlist_Close_On_Select         = 1           " close the taglist window when a file or tag is selected
+let Tlist_GainFocus_On_ToggleOpen = 1           " the cursor moves to the taglist window after opening the taglist window.
+noremap <leader>t :TlistToggle<CR>
+
+" 只有在是PHP文件时，才启用补全
 au FileType php call AddPHPFuncList()
 function AddPHPFuncList()
     set dictionary-=$HOME/.vim/doc/function.txt dictionary+=$HOME/.vim/doc/function.txt
