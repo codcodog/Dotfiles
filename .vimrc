@@ -17,10 +17,10 @@ Plugin 'godlygeek/tabular'
 " 括号成对
 Plugin 'chun-yang/auto-pairs'
 
-" python对齐, pe8 格式
-Plugin 'Vimjas/vim-python-pep8-indent'
 " Python 语法高亮
 Plugin 'hdima/python-syntax'
+" Python 缩进
+Plugin 'hynek/vim-python-pep8-indent'
 
 " markdown编辑器及其实时查看
 Plugin 'plasticboy/vim-markdown'
@@ -29,17 +29,10 @@ Plugin 'suan/vim-instant-markdown'
 " 前端emmet插件
 Plugin 'mattn/emmet-vim'
 
-" 语法检查
-Plugin 'scrooloose/syntastic'
-
 " 查看目录结构
 Plugin 'scrooloose/nerdtree'
-
 " 源码函数列表
 Plugin 'taglist.vim'
-
-" buffer 插件
-Plugin 'troydm/easybuffer.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
