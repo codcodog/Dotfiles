@@ -92,6 +92,8 @@ noremap <C-n> :NERDTreeToggle<CR>
 " <leader> 配置
 let mapleader=','   " 设置 <leader> 键
 noremap <leader>o :only<CR>
+noremap <leader>v :vsp<CR><C-w>l
+noremap <leader>s :sp<CR><C-w>j
 
 " taglist 配置
 let Tlist_Show_One_File           = 1           " To display the tags for only the current active buffer
