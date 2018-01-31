@@ -69,6 +69,7 @@ set laststatus=2             " 总是显示状态栏
 
 " 缩写
 iabbrev #s // ------------------------------------------------------------------------<CR><ESC>
+iabbrev !- <!--more-->
 
 let python_highlight_all = 1
 syntax enable                " 打开语法高亮
