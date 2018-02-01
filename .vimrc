@@ -51,7 +51,8 @@ filetype plugin indent on    " required
 
 " 自定义
 set expandtab                " 设置tab键换空格
-set tabstop=4                " 设置tab键的宽度
+set tabstop=8                " 设置tab键的宽度
+set encoding=utf-8           " 设置字符编码
 set shiftwidth=4             " 换行时行间交错使用4个空格
 set autoindent               " 自动对齐
 set cindent shiftwidth=4     " 自动缩进4空格
