@@ -55,7 +55,7 @@ set tabstop=8                " 设置tab键的宽度
 set encoding=utf-8           " 设置字符编码
 set shiftwidth=4             " 换行时行间交错使用4个空格
 set autoindent               " 自动对齐
-set cindent shiftwidth=4     " 自动缩进4空格
+set cindent                  " 自动缩进4空格
 set smartindent              " 智能自动缩进
 set ai!                      " 设置自动缩进
 set nu!                      " 显示行号
