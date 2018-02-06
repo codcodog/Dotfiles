@@ -100,11 +100,11 @@ noremap <leader>v :vsp<CR>
 noremap <leader>s :sp<CR><C-W>k
 noremap <leader>q :quit<CR>
 
-" taglist 配置
+" Taglist 配置
 let Tlist_Show_One_File           = 1           " To display the tags for only the current active buffer
-let Tlist_Use_Right_Window        = 1           " To use a vertically split taglist window on the rightmost side of the Vim window
 let Tlist_Close_On_Select         = 1           " close the taglist window when a file or tag is selected
 let Tlist_GainFocus_On_ToggleOpen = 1           " the cursor moves to the taglist window after opening the taglist window.
+let Tlist_Auto_Update = 1                       " When a new file is edited, the tags defined in the file are automatically processed and added to the taglist
 noremap <leader>t :TlistToggle<CR>
 
 " 只有在是PHP文件时，才启用补全
