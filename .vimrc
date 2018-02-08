@@ -88,6 +88,7 @@ nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 nnoremap <Up> :resize -2<CR>
 nnoremap <Down> :resize +2<CR>
+cnoremap w!! w !sudo tee > /dev/null %
 
 " 插件热键
 noremap <space><space> :CtrlPBuffer<CR>
