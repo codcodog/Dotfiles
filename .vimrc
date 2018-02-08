@@ -49,7 +49,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" 自定义
+" ============= Options 配置 START =============
+"
 set expandtab                " 设置tab键换空格
 set tabstop=4                " 设置tab键的宽度
 set encoding=utf-8           " 设置字符编码
@@ -69,16 +70,20 @@ set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文�
 set laststatus=2             " 总是显示状态栏
 set splitright               " 设置vsplit在右边
 set autochdir                " 设置当前目录路径为当前文件目录路径, 或者可以使用：:cd %:p:h
+"
+" ============= Options 配置 END =============
 
-" 缩写
+
+" ============= 缩写配置 START =============
+"
 iabbrev #s // ------------------------------------------------------------------------<CR><ESC>
 iabbrev !- <!--more-->
+"
+" ============= 缩写配置 END =============
 
-let python_highlight_all = 1
-syntax enable                " 打开语法高亮
-syntax on                    " 开启文件类型侦测
- 
-" 映射键
+
+" ============= 映射键 配置 START =============
+"
 inoremap jj <ESC>
 noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
@@ -89,24 +94,45 @@ nnoremap <Right> :vertical resize -2<CR>
 nnoremap <Up> :resize -2<CR>
 nnoremap <Down> :resize +2<CR>
 cnoremap w!! w !sudo tee > /dev/null %
+"
+" ============= 映射键 配置 END =============
 
-" 插件热键
-noremap <space><space> :CtrlPBuffer<CR>
-noremap <C-n> :NERDTreeToggle<CR>
 
-" <leader> 配置
+" ============= <LEADER> 配置 START =============
+"
 let mapleader=','   " 设置 <leader> 键
 noremap <leader>o :only<CR>
 noremap <leader>v :vsp<CR>
 noremap <leader>s :sp<CR><C-W>k
 noremap <leader>q :quit<CR>
+"
+" ============= <LEADER> 配置 END ==============
 
-" Taglist 配置
+
+" ============= 插件配置 START =============
+"
+" Ctrlp
+noremap <space><space> :CtrlPBuffer<CR>
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" NERDTree
+noremap <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeQuitOnOpen=1
+
+" Taglist
 let Tlist_Show_One_File           = 1           " To display the tags for only the current active buffer
 let Tlist_Close_On_Select         = 1           " close the taglist window when a file or tag is selected
 let Tlist_GainFocus_On_ToggleOpen = 1           " the cursor moves to the taglist window after opening the taglist window.
 let Tlist_Auto_Update = 1                       " When a new file is edited, the tags defined in the file are automatically processed and added to the taglist
 noremap <leader>t :TlistToggle<CR>
+
+" python-syntax
+let python_highlight_all = 1
+syntax enable                " 打开语法高亮
+syntax on                    " 开启文件类型侦测
+"
+" ============= 插件配置 END =============
+
 
 " 只有在是PHP文件时，才启用补全
 au FileType php call AddPHPFuncList()
@@ -114,6 +140,3 @@ function AddPHPFuncList()
     set dictionary-=$HOME/.vim/doc/function.txt dictionary+=$HOME/.vim/doc/function.txt
     set complete-=k complete+=k
 endfunction
-
-" ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
