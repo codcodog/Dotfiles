@@ -64,7 +64,6 @@ set incsearch                " 查找book时，当输入/b时会自动找到
 set hlsearch                 " 开启高亮显示结果
 set incsearch                " 开启实时搜索功能
 set nowrapscan               " 搜索到文件两端时不重新搜索
-set clipboard=unnamedplus    " 设置系统粘贴版, vim需要支持clipboard特性(Arch系统，需要安装gvim)
 set encoding=utf-8           " 设置字符编码
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 set laststatus=2             " 总是显示状态栏
@@ -105,6 +104,7 @@ noremap <leader>o :only<CR>
 noremap <leader>v :vsp<CR>
 noremap <leader>s :sp<CR><C-W>k
 noremap <leader>q :quit<CR>
+noremap <leader>p "+p
 "
 " ============= <LEADER> 配置 END ==============
 
@@ -117,7 +117,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " NERDTree
 noremap <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeQuitOnOpen = 1
 
 " Taglist
 let Tlist_Show_One_File           = 1           " To display the tags for only the current active buffer
@@ -126,7 +126,7 @@ let Tlist_GainFocus_On_ToggleOpen = 1           " the cursor moves to the taglis
 let Tlist_Auto_Update = 1                       " When a new file is edited, the tags defined in the file are automatically processed and added to the taglist
 noremap <leader>t :TlistToggle<CR>
 
-" python-syntax
+" Python-syntax
 let python_highlight_all = 1
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
