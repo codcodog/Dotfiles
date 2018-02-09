@@ -104,8 +104,6 @@ noremap <leader>o :only<CR>
 noremap <leader>v :vsp<CR>
 noremap <leader>s :sp<CR><C-W>k
 noremap <leader>q :quit<CR>
-noremap <leader>p "+p
-noremap <leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "
 " ============= <LEADER> 配置 END ==============
 
