@@ -71,6 +71,14 @@ set encoding=utf-8           " 设置字符编码
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 set laststatus=2             " 总是显示状态栏
 set splitright               " 设置vsplit在右边
+
+set statusline=%t
+set statusline+=%3*\ %m%r%w      "modified flag, Modified, Readonly ?
+set statusline+=%=
+set statusline+=%{toupper(&ff).'·'} "file format
+set statusline+=%{toupper(strlen(&fenc)?&fenc:'none')}\ "file encoding
+set statusline+=%=%5(%l,%c%)\            " line and column
+set statusline+=%5*\ %P
 "
 " ============= Options 配置 END =============
 
