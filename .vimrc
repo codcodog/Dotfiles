@@ -34,6 +34,9 @@ Plugin 'scrooloose/nerdtree'
 " 源码函数列表
 Plugin 'taglist.vim'
 
+" fuzzy finding
+Plugin 'junegunn/fzf.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -68,7 +71,6 @@ set encoding=utf-8           " 设置字符编码
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 set laststatus=2             " 总是显示状态栏
 set splitright               " 设置vsplit在右边
-set autochdir                " 设置当前目录路径为当前文件目录路径, 或者可以使用：:cd %:p:h
 "
 " ============= Options 配置 END =============
 
@@ -100,22 +102,32 @@ cnoremap w!! w !sudo tee > /dev/null %
 " ============= <LEADER> 配置 START =============
 "
 let mapleader=','   " 设置 <leader> 键
-noremap <leader>o :only<CR>
-noremap <leader>v :vsp<CR>
-noremap <leader>s :sp<CR><C-W>k
-noremap <leader>q :quit<CR>
+noremap <silent> <leader>o :only<CR>
+noremap <silent> <leader>v :vsp<CR>
+noremap <silent> <leader>s :sp<CR><C-W>k
+noremap <silent> <leader>q :quit<CR>
 "
 " ============= <LEADER> 配置 END ==============
 
 
 " ============= 插件配置 START =============
 "
-" Ctrlp
-noremap <space><space> :CtrlPBuffer<CR>
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" fzf
+set rtp+=~/.fzf
+let g:fzf_layout = { 'down': '~20%' }
+nnoremap <silent> <C-P> :Files<CR>
+nnoremap <silent> <space><space> :Buffers<CR>
+
+" fzf -> Ag
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+nnoremap <silent> <Leader>a :Ag<CR>
 
 " NERDTree
-noremap <C-n> :NERDTreeToggle<CR>
+noremap <silent> <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeQuitOnOpen = 1
 
 " Taglist
@@ -123,7 +135,7 @@ let Tlist_Show_One_File           = 1           " To display the tags for only t
 let Tlist_Close_On_Select         = 1           " close the taglist window when a file or tag is selected
 let Tlist_GainFocus_On_ToggleOpen = 1           " the cursor moves to the taglist window after opening the taglist window.
 let Tlist_Auto_Update = 1                       " When a new file is edited, the tags defined in the file are automatically processed and added to the taglist
-noremap <leader>t :TlistToggle<CR>
+noremap <silent> <leader>t :TlistToggle<CR>
 
 " Python-syntax
 let python_highlight_all = 1
