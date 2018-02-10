@@ -11,7 +11,12 @@ alias vi='vim'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-alias ff='fzf --height 30%'
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# fzf 配置 
+export PATH="$PATH:/usr/local/php/bin:/usr/local/php/sbin"
+alias ff='fzf --height 30%'
+fh() { 
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | ff +s --tac | sed 's/ *[0-9]* *//')
+}
+
 PS1='[\u@\h \W]\$ '
