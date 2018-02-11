@@ -1,56 +1,44 @@
-set nocompatible             " 禁止vim在vi兼容模式
-filetype off                 " required
+" ============= Plug 配置 END =============
+"
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Keep Plugin commands between vundle#begin/end.
+call plug#begin('~/.vim/plugged')
 
 " tab对齐
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
+
 " 括号成对
-Plugin 'chun-yang/auto-pairs'
+Plug 'chun-yang/auto-pairs'
 
 " Python 语法高亮
-Plugin 'hdima/python-syntax'
+Plug 'hdima/python-syntax', {'for': 'python'}
 " Python 缩进
-Plugin 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 
 " markdown编辑器及其实时查看
-Plugin 'plasticboy/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " 前端emmet插件
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': 'html'}
 
 " 查看目录结构
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+
 " 源码函数列表
-Plugin 'taglist.vim'
+Plug 'vim-scripts/taglist.vim', {'on': 'TlistToggle'}
 
 " fuzzy finding
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end() 
 "
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" ============= Plug 配置 END =============
 
 " ============= Options 配置 START =============
 "
