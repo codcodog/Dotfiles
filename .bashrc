@@ -12,11 +12,6 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
-# fzf 配置 
-export PATH="$PATH:/usr/local/php/bin:/usr/local/php/sbin"
-alias ff='fzf --height 30%'
-fh() { 
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | ff +s --tac | sed 's/ *[0-9]* *//')
-}
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 PS1='[\u@\h \W]\$ '
