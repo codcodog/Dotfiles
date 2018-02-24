@@ -143,8 +143,8 @@ syntax on                    " 开启文件类型侦测
 
 
 " 只有在是PHP文件时，才启用补全
-au FileType php call AddPHPFuncListCodcodog()
-function! AddPHPFuncListCodcodog()
+au FileType php call <SID>AddPHPFuncListCodcodog()
+function! s:AddPHPFuncListCodcodog()
     set dictionary-=$HOME/.vim/doc/function.txt dictionary+=$HOME/.vim/doc/function.txt
     set complete-=k complete+=k
 endfunction
