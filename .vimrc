@@ -60,14 +60,13 @@ set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文�
 set laststatus=2             " 总是显示状态栏
 set splitright               " 设置vsplit在右边
 
-set statusline=
-set statusline+=%t
-set statusline+=%4m%r%w      "modified flag, Modified, Readonly ?
-set statusline+=%=
-set statusline+=%{toupper(&ff).'·'} "file format
-set statusline+=%{toupper(strlen(&fenc)?&fenc:'none')}\ "file encoding
-set statusline+=%=%8(%l,%c%)\            " line and column
-set statusline+=%5P
+set statusline=%t                                           " 文件名
+set statusline+=%4m%r%w                                     " modified flag, Modified, Readonly ?
+set statusline+=%=                                          " 切换到右边
+set statusline+=%{toupper(&ff).'·'}                         " file format
+set statusline+=%{toupper(strlen(&fenc)?&fenc:'none')}      " file encoding
+set statusline+=%8(%l,%c%)                                  " line and column
+set statusline+=%5P                                         " Percentage through file of displayed window
 "
 " ============= Options 配置 END =============
 
