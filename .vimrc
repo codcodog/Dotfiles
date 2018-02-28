@@ -141,9 +141,19 @@ syntax on                    " 开启文件类型侦测
 " ============= 插件配置 END =============
 
 
-" 只有在是PHP文件时，才启用补全
+" ============= 自定义配置 START =============
+"
+" PHP 文件，启用补全
 au FileType php call <SID>AddPHPFuncListCodcodog()
 function! s:AddPHPFuncListCodcodog()
     set dictionary-=$HOME/.vim/doc/function.txt dictionary+=$HOME/.vim/doc/function.txt
     set complete-=k complete+=k
 endfunction
+
+" python 文件的，缩进折叠
+augroup filetype_python
+    autocmd!
+    autocmd FileType python setlocal foldmethod=indent
+augroup END
+"
+" ============= 自定义配置 START =============
