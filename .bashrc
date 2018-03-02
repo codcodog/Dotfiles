@@ -11,6 +11,8 @@ alias vi='vim'
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
