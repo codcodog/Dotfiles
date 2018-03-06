@@ -1,0 +1,6 @@
+[alias]
+	st = status
+	df = diff
+[user]
+	name = codcodog
+	email = codcodog@gmail.com
