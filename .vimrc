@@ -91,7 +91,7 @@ nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 nnoremap <Up> :resize -2<CR>
 nnoremap <Down> :resize +2<CR>
-cnoremap ww <c-u>w !sudo tee > /dev/null %
+cnoremap w!! <c-u>w !sudo tee > /dev/null %
 "
 " ============= 映射键 配置 END =============
 
