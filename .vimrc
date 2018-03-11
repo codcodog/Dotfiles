@@ -144,12 +144,17 @@ syntax on                    " 开启文件类型侦测
 
 " ============= 自定义配置 START =============
 "
-" PHP 文件，启用补全
-au FileType php call <SID>AddPHPFuncListCodcodog()
+" PHP 函数补全
 function! s:AddPHPFuncListCodcodog()
     set dictionary-=$HOME/.vim/doc/function.txt dictionary+=$HOME/.vim/doc/function.txt
     set complete-=k complete+=k
 endfunction
+
+" PHP 文件，启用补全
+augroup filetype_php
+    autocmd!
+    autocmd FileType php call <SID>AddPHPFuncListCodcodog()
+augroup END 
 
 " python 文件的，缩进折叠
 augroup filetype_python
