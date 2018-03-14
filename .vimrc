@@ -99,6 +99,7 @@ cnoremap w!! <c-u>w !sudo tee > /dev/null %
 " ============= <LEADER> 配置 START =============
 "
 let mapleader=','   " 设置 <leader> 键
+noremap <silent> <leader>w :update<CR>
 noremap <silent> <leader>o :only<CR>
 noremap <silent> <leader>v :vsp<CR>
 noremap <silent> <leader>s :sp<CR><C-W>k
