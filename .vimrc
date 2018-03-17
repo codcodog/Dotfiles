@@ -50,16 +50,14 @@ set shiftwidth=4             " 换行时行间交错使用4个空格
 set autoindent               " 自动对齐
 set cindent                  " 自动缩进4空格
 set smartindent              " 智能自动缩进
-set ai                       " 设置自动缩进
-set nu                       " 显示行号
+set number                   " 显示行号
 set incsearch                " 查找book时，当输入/b时会自动找到
 set hlsearch                 " 开启高亮显示结果
 set incsearch                " 开启实时搜索功能
 set nowrapscan               " 搜索到文件两端时不重新搜索
-set encoding=utf-8           " 设置字符编码
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
-set laststatus=2             " 总是显示状态栏
 set splitright               " 设置vsplit在右边
+set laststatus=2             " 总是显示状态栏
 
 set statusline=%t                                           " 文件名
 set statusline+=%4m%r%w                                     " modified flag, Modified, Readonly ?
