@@ -58,6 +58,7 @@ set nowrapscan               " 搜索到文件两端时不重新搜索
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 set splitright               " 设置vsplit在右边
 set laststatus=2             " 总是显示状态栏
+set directory=/tmp           " 设置swp文件存储目录
 
 set statusline=%t                                           " 文件名
 set statusline+=%4m%r%w                                     " modified flag, Modified, Readonly ?
