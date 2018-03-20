@@ -91,6 +91,13 @@ nnoremap <Right> :vertical resize -2<CR>
 nnoremap <Up> :resize -2<CR>
 nnoremap <Down> :resize +2<CR>
 cnoremap w!! <c-u>w !sudo tee > /dev/null %
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-a> <Home>
+exe "set <A-b>=\eb"
+exe "set <A-f>=\ef"
+cnoremap <A-b> <C-Left>
+cnoremap <A-f> <C-Right>
 "
 " ============= 映射键 配置 END =============
 
