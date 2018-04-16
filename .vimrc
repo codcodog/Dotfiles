@@ -111,6 +111,7 @@ noremap <silent> <leader>v :vsp<CR>
 noremap <silent> <leader>s :sp<CR><C-W>k
 noremap <silent> <leader>q :quit<CR>
 noremap <silent> <leader>b :bd<CR>
+noremap <silent> <leader>l :ls<CR>
 "
 " ============= <LEADER> 配置 END ==============
 
