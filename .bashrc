@@ -14,6 +14,7 @@ alias cp='cp -i'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+HISTCONTROL=erasedups
 HISTSIZE=5000
 HISTFILESIZE=5000
 
