@@ -112,6 +112,7 @@ noremap <silent> <leader>s :sp<CR><C-W>k
 noremap <silent> <leader>q :quit<CR>
 noremap <silent> <leader>b :bd<CR>
 noremap <silent> <leader>l :ls<CR>
+vnoremap <silent> <leader>a :Tab/=<CR>
 "
 " ============= <LEADER> 配置 END ==============
 
