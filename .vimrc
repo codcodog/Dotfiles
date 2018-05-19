@@ -113,6 +113,7 @@ noremap <silent> <leader>q :quit<CR>
 noremap <silent> <leader>b :bd<CR>
 noremap <silent> <leader>l :ls<CR>
 vnoremap <silent> <leader>a :Tab/=<CR>
+noremap <silent> <leader>n :noh<CR>
 "
 " ============= <LEADER> 配置 END ==============
 
