@@ -111,9 +111,10 @@ noremap <silent> <leader>v :vsp<CR>
 noremap <silent> <leader>s :sp<CR><C-W>k
 noremap <silent> <leader>q :quit<CR>
 noremap <silent> <leader>b :bd<CR>
-noremap <silent> <leader>l :ls<CR>
 vnoremap <silent> <leader>a :Tab/=<CR>
 noremap <silent> <leader>n :noh<CR>
+noremap <silent> <leader>, :vsplit $MYVIMRC<CR>
+noremap <silent> <leader>. :source $MYVIMRC<CR>
 "
 " ============= <LEADER> 配置 END ==============
 
