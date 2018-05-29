@@ -1,0 +1,45 @@
+#!/bin/env bash
+
+# 配置 Vim 脚本
+# 运行环境：Arch Linux
+
+# 安装 gvim 版本, 实现触摸板共享
+if ! command -v gvim > /dev/null 2>&1 ; then
+  echo 'gvim is installing...'
+  sudo pacman -S gvim
+fi
+
+# markdown 插件依赖
+if ! command -v npm > /dev/null 2>&1 ; then
+  echo 'nodejs and npm are installing...'
+  sudo pacman -S nodejs npm
+fi
+if ! npm list -g -depth=0 2>/dev/null | grep 'instant-markdown-d' ; then
+  echo 'npm is installing instant-markdown-d...'
+  sudo npm -g install instant-markdown-d
+fi
+
+# fzf 插件依赖
+# fzf - https://github.com/junegunn/fzf
+if ! command -v fzf > /dev/null 2>&1 ; then
+  echo 'fzf is installing...'
+  sudo pacman -S fzf
+fi
+
+# ag - https://github.com/ggreer/the_silver_searcher
+if ! command -v ag > /dev/null 2>&1 ; then
+  echo 'ag is installing...'
+  sudo pacman -S the_silver_searcher
+fi
+
+if [ -d ~/.vim ] ; then
+  mv ~/.vim ~/.vim.bak
+fi
+cp -r ./.vim ~
+
+if [ -f ~/.vimrc ] ; then
+  mv ~/.vimrc ~/.vimrc.bak
+fi
+cp ./.vimrc ~
+
+vim +:PlugInstall
