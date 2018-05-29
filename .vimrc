@@ -168,6 +168,12 @@ augroup filetype_php
     autocmd FileType php call <SID>AddPHPFuncListCodcodog()
 augroup END 
 
+" Shell 文件，缩进修改
+augroup filetype_sh
+    set tabstop=2                " 设置tab键的宽度
+    set shiftwidth=2             " 换行时行间交错使用4个空格
+augroup END
+
 " python 文件的，缩进折叠
 augroup filetype_python
     autocmd!
