@@ -1,0 +1,30 @@
+#!/bin/env bash
+
+# Dotfiles 自动配置脚本
+
+if [ -f ~/.Xmodmap ]; then
+  mv ~/.Xmodmap ~/.Xmodmap.bak
+fi
+cp ./.Xmodmap ~
+
+if [ -f ~/.bashrc ] ; then
+  mv ~/.bashrc ~/.bashrc.bak
+fi
+cp ./.bashrc ~
+
+if [ -f ~/.gitconfig ]; then
+  mv ~/.gitconfig ~/.gitconfig.bak
+fi
+cp ./.gitconfig ~
+
+if [ -f ~/.xinitrc ]; then
+  mv ~/.xinitrc ~/.xinitrc.bak
+fi
+cp ./.xinitrc ~
+
+if [ ! -d ~/.config/awesome ] ; then
+  mkdir -p ~/.config/awesome
+elif [ -f ~/.config/awesome/rc.lua ] ; then
+  mv ~/.config/awesome/rc.lua ~/.config/awesome/rc.lua.bak
+fi
+cp ./rc.lua ~/.config/awesome/rc.lua
