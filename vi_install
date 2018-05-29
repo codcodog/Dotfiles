@@ -42,4 +42,10 @@ if [ -f ~/.vimrc ] ; then
 fi
 cp ./.vimrc ~
 
+# 检查 git 是否存在，Plug 插件依赖
+if ! command -v git > /dev/null 2>&1 ; then
+  echo 'git is installing...'
+  sudo pacman -S git
+fi
+
 vim +:PlugInstall
