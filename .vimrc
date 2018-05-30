@@ -18,6 +18,8 @@ Plug 'chun-yang/auto-pairs'
 Plug 'hdima/python-syntax', {'for': 'python'}
 " Python 缩进
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+" Python 查看缩进
+Plug 'Yggdroot/indentLine'
 
 " markdown编辑器及其实时查看
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
@@ -150,6 +152,9 @@ noremap <silent> <leader>t :TlistToggle<CR>
 let python_highlight_all = 1
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
+
+" indentLine 
+let g:indentLine_enabled = 0 " 默认关闭
 "
 " ============= 插件配置 END =============
 
@@ -170,14 +175,19 @@ augroup END
 
 " Shell 文件，缩进修改为2个空格
 augroup filetype_sh
-    set tabstop=2                " 设置tab键的宽度
-    set shiftwidth=2             " 换行时行间交错使用4个空格
+    autocmd!
+    autocmd FileType sh
+                \ set tabstop=2 |
+                \ set shiftwidth=2
 augroup END
 
-" python 文件，缩进折叠
+" python 文件，可视化缩进
 augroup filetype_python
     autocmd!
-    autocmd FileType python setlocal foldmethod=indent
+    " indentLine 插件配置
+    autocmd FileType python
+                \ let g:indentLine_enabled=1 |
+                \ let g:indentLine_char='·'
 augroup END
 "
 " ============= 自定义配置 START =============
