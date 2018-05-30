@@ -19,3 +19,9 @@ $ ./vi_install
 ```sh
 $ ./other_install
 ```
+
+`Arch` 安装
+```
+$ ./arch_install
+```
+> 前提：分好区，挂载，联网，还需手动安装 Boot.
