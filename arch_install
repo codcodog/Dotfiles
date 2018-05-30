@@ -68,12 +68,21 @@ pacman -S iw wpa_supplicant dialog bash-completion git xorg xorg-xinit xf86-vide
   awesome terminator chromium wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin\
   shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim
 
+# 配置文件
+git clone https://github.com/codcodog/Dotfiles.git
+cd Dotfiles
+./other_install
+./vi_install
+
 # yaourt
 git clone https://aur.archlinux.org/package-query.git
 cd package-query
 makepkg -si
-
 cd ..
+rm -rf 'package-query'
+
 git clone https://aur.archlinux.org/yaourt.git
 cd yaourt
 makepkg -si
+cd ..
+rm -rf 'yaourt'
