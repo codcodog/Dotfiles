@@ -100,6 +100,9 @@ exe "set <A-b>=\eb"
 exe "set <A-f>=\ef"
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
+
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=232
 "
 " ============= 映射键 配置 END =============
 
