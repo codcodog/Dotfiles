@@ -7,7 +7,7 @@
 
 
 # 配置区域和时间
-echo '配置区域和时间...'
+echo 'Config charset and timezone.'
 sed -i -e '/#en_US\.UTF-8/s/^.//' -e '/#zh_CN\.UTF-8/s/^.//' /etc/locale.gen
 locale-gen > /dev/null
 echo LANG=en_US.UTF-8 > /etc/locale.conf
@@ -27,7 +27,7 @@ case $answer in
 esac
 
 # 设置主机名，创建用户并赋予 root 权限
-echo '设置主机名和创建用户...'
+echo 'Add user and config password.'
 echo codcodog > /etc/hostname
 echo 'password for root.'
 passwd
@@ -39,6 +39,7 @@ passwd cryven
 sed -i '/# %wheel ALL=(ALL) ALL/s/^..//' /etc/sudoers
 
 # yaourt
+echo 'Install yaourt.'
 git clone https://aur.archlinux.org/package-query.git
 cd package-query
 makepkg -si
@@ -62,5 +63,5 @@ pacman -S iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-no
   awesome terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin\
   shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mycli mysql-workbench
 
-echo '系统初始化配置完成，还需手动安装 System Boot.'
+echo 'Finish config, but still need install system boot manual.'
 exit 0
