@@ -20,7 +20,7 @@ case $answer in
     if [ -f /etc/localtime ] ; then
       mv /etc/localtime /etc/localtime.bak
     fi
-    ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    ln -s /usr/share/zoneinfo/UTC /etc/localtime
     hwclock --systohc --utc
     ;;
   *) :
