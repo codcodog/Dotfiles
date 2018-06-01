@@ -1,33 +1,10 @@
 #!/bin/env bash
 
 # Arch Linux 安装脚本
-# 脚本执行前提条件：系统分好盘，格式化，并挂载
-# 系统引导，手动安装：systemd-boot - https://wiki.archlinux.org/index.php/Systemd-boot_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85
+# 功能：系统基本配置，软件安装
+# 另外System Boot 手动安装：grub/system-boot
+# system-boot 参考：https://www.cio.com/article/3098030/linux/how-to-install-arch-linux-on-dell-xps-13-2016-in-7-steps.html#slide5
 
-# 检查网络和配置镜像
-echo '配置网络和镜像...'
-if ! ping -c3 cn.bing.com >/dev/null 2>&1 ; then
-  echo 'Not yet connected the network.'
-  exit 1
-fi
-
-sed -i '6 a # 国内源\
-Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch\
-Server = http://mirros.163.com/archlinux/$repo/os/$arch\
-Server = http://mirros.sohu.com/archlinux/$repo/os/$arch' /etc/pacman.d/mirrorlist
-
-# 安装基础系统
-echo '安装基础系统...'
-if ! lsblk | grep 'mnt' > /dev/null; then
-  echo '/mnt has not been mounted.'
-  exit 1
-fi
-pacstrap -i /mnt base base-devel
-
-# 配置 fstab, 并切换到新系统
-echo '配置 fstab 并切换到新系统...'
-genfstab -U -p /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
 
 # 配置区域和时间
 echo '配置区域和时间...'
@@ -49,11 +26,9 @@ case $answer in
   *) :
 esac
 
-# 设置主机名，创建用户，赋予权限
+# 设置主机名，创建用户并赋予 root 权限
 echo '设置主机名和创建用户...'
-
 echo codcodog > /etc/hostname
-
 echo 'password for root.'
 passwd
 
@@ -62,17 +37,6 @@ echo 'passwd for cryven.'
 passwd cryven
 
 sed -i '/# %wheel ALL=(ALL) ALL/s/^..//' /etc/sudoers
-
-# 安装软件
-pacman -S iw wpa_supplicant dialog bash-completion git xorg xorg-xinit xf86-video-nouveau\
-  awesome terminator chromium wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin\
-  shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim
-
-# 配置文件
-git clone https://github.com/codcodog/Dotfiles.git
-cd Dotfiles
-./other_install
-./vi_install
 
 # yaourt
 git clone https://aur.archlinux.org/package-query.git
@@ -86,3 +50,17 @@ cd yaourt
 makepkg -si
 cd ..
 rm -rf 'yaourt'
+
+# 配置镜像
+sed -i '6 a # 国内源\
+Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch\
+Server = http://mirros.163.com/archlinux/$repo/os/$arch\
+Server = http://mirros.sohu.com/archlinux/$repo/os/$arch' /etc/pacman.d/mirrorlist
+
+# 安装软件
+pacman -S iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau\
+  awesome terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin\
+  shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mycli mysql-workbench
+
+echo '系统初始化配置完成，还需手动安装 System Boot.'
+exit 0
