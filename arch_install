@@ -61,7 +61,7 @@ Server = http://mirros.sohu.com/archlinux/$repo/os/$arch' /etc/pacman.d/mirrorli
 # 安装软件
 pacman -S iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau\
   awesome terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin\
-  shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mycli mysql-workbench
+  shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench
 
 echo 'Finish config, but still need install system boot manual.'
 exit 0
