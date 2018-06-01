@@ -27,6 +27,7 @@ case $answer in
 esac
 
 # 设置主机名，创建用户并赋予 root 权限
+echo
 echo 'Add user and config password.'
 echo codcodog > /etc/hostname
 echo 'password for root.'
@@ -38,30 +39,17 @@ passwd cryven
 
 sed -i '/# %wheel ALL=(ALL) ALL/s/^..//' /etc/sudoers
 
-# yaourt
-echo 'Install yaourt.'
-git clone https://aur.archlinux.org/package-query.git
-cd package-query
-makepkg -si
-cd ..
-rm -rf 'package-query'
-
-git clone https://aur.archlinux.org/yaourt.git
-cd yaourt
-makepkg -si
-cd ..
-rm -rf 'yaourt'
-
 # 配置镜像
-sed -i '6 a # 国内源\
-Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch\
+sed -i '6 a # China\
 Server = http://mirros.163.com/archlinux/$repo/os/$arch\
+Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch\
 Server = http://mirros.sohu.com/archlinux/$repo/os/$arch' /etc/pacman.d/mirrorlist
 
 # 安装软件
-pacman -S iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau\
-  awesome terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin\
-  shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench
+pacman -S iw wpa_supplicant dialog bash-completion xorg xorg-xinit\
+  xf86-video-nouveau awesome terminator chromium firefox wqy-microhei fcitx\
+  fcitx-im fcitx-configtool fcitx-sunpinyin shadowsocks-qt5 ranger thunar\
+  ntfs-3g gvfs-mtp gvim httpie mysql-workbench
 
-echo 'Finish config, but still need install system boot manual.'
+echo 'Finish system basic config, but still need to install system boot manually.'
 exit 0
