@@ -2,6 +2,22 @@
 
 # Dotfiles 自动配置脚本
 
+# 安装 yaourt
+if ! hash yaourt 2>/dev/null ; then
+  git clone https://aur.archlinux.org/package-query.git
+  cd package-query
+  makepkg -si
+  cd ..
+  rm -rf 'package-query'
+
+  git clone https://aur.archlinux.org/yaourt.git
+  cd yaourt
+  makepkg -si
+  cd ..
+  rm -rf 'yaourt'
+fi
+
+# 配置文件
 if [ -f ~/.Xmodmap ]; then
   mv ~/.Xmodmap ~/.Xmodmap.bak
 fi
