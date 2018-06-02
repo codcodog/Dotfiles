@@ -44,3 +44,6 @@ elif [ -f ~/.config/awesome/rc.lua ] ; then
   mv ~/.config/awesome/rc.lua ~/.config/awesome/rc.lua.bak
 fi
 cp ./rc.lua ~/.config/awesome/rc.lua
+cd ~/.config/awesome
+git clone https://github.com/streetturtle/awesome-wm-widgets.git
+cd ~
