@@ -51,5 +51,5 @@ pacman -S iw wpa_supplicant dialog bash-completion xorg xorg-xinit\
   fcitx-im fcitx-configtool fcitx-sunpinyin shadowsocks-qt5 ranger thunar\
   ntfs-3g gvfs-mtp gvim httpie mysql-workbench
 
-echo 'Finish system basic config, but still need to install system boot manually.'
+echo -e '\033[0;31mFinish system basic config, but still need to install system boot manually: grub or system-boot.\033[0m'
 exit 0
