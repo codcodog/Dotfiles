@@ -117,6 +117,7 @@ noremap <silent> <leader>s :sp<CR><C-W>k
 noremap <silent> <leader>q :quit<CR>
 noremap <silent> <leader>b :bd<CR>
 vnoremap <silent> <leader>a :Tab/=<CR>
+vnoremap <silent> <leader>> :Tab/=><CR>
 noremap <silent> <leader>n :noh<CR>
 noremap <silent> <leader>, :vsplit $MYVIMRC<CR>:normal 107Gzz<CR>
 noremap <silent> <leader>. :source $MYVIMRC<CR>
