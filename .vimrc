@@ -149,7 +149,8 @@ let g:NERDTreeQuitOnOpen = 1
 let Tlist_Show_One_File           = 1           " To display the tags for only the current active buffer
 let Tlist_Close_On_Select         = 1           " close the taglist window when a file or tag is selected
 let Tlist_GainFocus_On_ToggleOpen = 1           " the cursor moves to the taglist window after opening the taglist window.
-let Tlist_Auto_Update = 1                       " When a new file is edited, the tags defined in the file are automatically processed and added to the taglist
+let Tlist_Auto_Update             = 1           " When a new file is edited, the tags defined in the file are automatically processed and added to the taglist
+let tlist_php_settings            = 'php;c:class;f:function' " 仅显示函数和类，不显示变量
 noremap <silent> <leader>t :TlistToggle<CR>
 
 " Python-syntax
