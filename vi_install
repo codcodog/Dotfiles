@@ -26,6 +26,13 @@ if ! command -v fzf > /dev/null 2>&1 ; then
   sudo pacman -S fzf
 fi
 
+# 配置 fzf 键映射
+if [ ! -f ~/.fzf.bash ] ; then
+  if [ -f /usr/share/fzf/key-bindings.bash ] ; then
+    cp /usr/share/fzf/key-bindings.bash ~/.fzf.bash
+  fi
+fi
+
 # ag - https://github.com/ggreer/the_silver_searcher
 if ! command -v ag > /dev/null 2>&1 ; then
   echo 'ag is installing...'
