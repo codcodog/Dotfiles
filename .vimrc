@@ -115,7 +115,7 @@ noremap <silent> <leader>o :only<CR>
 noremap <silent> <leader>v :vsp<CR>
 noremap <silent> <leader>s :sp<CR><C-W>k
 noremap <silent> <leader>q :quit<CR>
-noremap <silent> <leader>b :bd<CR>
+noremap <silent> <leader>d :bd<CR>
 vnoremap <silent> <leader>a :Tab/=<CR>
 vnoremap <silent> <leader>> :Tab/=><CR>
 noremap <silent> <leader>n :noh<CR>
