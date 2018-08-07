@@ -112,6 +112,7 @@ highlight ColorColumn ctermbg=232
 let mapleader=','   " 设置 <leader> 键
 noremap <silent> <leader>w :update<CR>
 noremap <silent> <leader>o :only<CR>
+noremap <silent> <leader>O :call <SID>OnlyCurrentBufferCodcodog()<CR>
 noremap <silent> <leader>v :vsp<CR>
 noremap <silent> <leader>s :sp<CR><C-W>k
 noremap <silent> <leader>q :quit<CR>
@@ -170,6 +171,40 @@ let g:indentLine_enabled = 0 " 默认关闭
 function! s:AddPHPFuncListCodcodog()
     set dictionary-=$HOME/.vim/doc/function.txt dictionary+=$HOME/.vim/doc/function.txt
     set complete-=k complete+=k
+endfunction
+
+" 保留当前可见 buffer, wipe out 其他不可见 buffers
+function! s:OnlyCurrentBufferCodcodog()
+    " list of *all* buffer numbers
+    let l:buffers = range(1, bufnr('$'))
+
+    " what tab page are we in?
+    let l:currentTab = tabpagenr()
+    try
+        " go through all tab pages
+        let l:tab = 0
+        while l:tab < tabpagenr('$')
+            let l:tab += 1
+
+            " go through all windows
+            let l:win = 0
+            while l:win < winnr('$')
+                let l:win += 1
+                " whatever buffer is in this window in this tab, remove it from
+                " l:buffers list
+                let l:thisbuf = winbufnr(l:win)
+                call remove(l:buffers, index(l:buffers, l:thisbuf))
+            endwhile
+        endwhile
+
+        " if there are any buffers left, delete them
+        if len(l:buffers)
+            execute 'bwipeout' join(l:buffers)
+        endif
+    finally
+        " go back to our original tab page
+        execute 'tabnext' l:currentTab
+    endtry
 endfunction
 
 " PHP 文件，启用补全
