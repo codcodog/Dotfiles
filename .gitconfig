@@ -1,6 +1,7 @@
 [alias]
 	st = status
 	df = diff
+    co = checkout
 [user]
 	name = codcodog
 	email = codcodog@gmail.com
