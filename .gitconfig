@@ -2,6 +2,7 @@
 	st = status
 	df = diff
     co = checkout
+    br = branch
 [user]
 	name = codcodog
 	email = codcodog@gmail.com
