@@ -61,6 +61,7 @@ set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文�
 set splitright               " 设置vsplit在右边
 set laststatus=2             " 总是显示状态栏
 set directory=/tmp           " 设置swp文件存储目录
+set cscopetag
 
 set statusline=%t                                           " 文件名
 set statusline+=%4m%r%w                                     " modified flag, Modified, Readonly ?
@@ -100,7 +101,6 @@ exe "set <A-b>=\eb"
 exe "set <A-f>=\ef"
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
-nnoremap <silent> <c-]> :<C-u>rightbelow vertical stjump <C-r><C-w><CR>
 
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=232
