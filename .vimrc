@@ -100,7 +100,7 @@ exe "set <A-b>=\eb"
 exe "set <A-f>=\ef"
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
-nnoremap <silent> <c-]> :<c-u>rightbelow vertical stjump <c-r><c-w><cr>
+nnoremap <silent> <c-]> :<C-u>rightbelow vertical stjump <C-r><C-w><CR>
 
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=232
@@ -123,6 +123,9 @@ vnoremap <silent> <leader>> :Tab/=><CR>
 noremap <silent> <leader>n :noh<CR>
 noremap <silent> <leader>, :vsplit $MYVIMRC<CR>:normal 107Gzz<CR>
 noremap <leader>. :source $MYVIMRC<CR>
+
+" fzf -> Ag
+nnoremap <Leader>a :<C-u>Ag <C-r><C-w><CR>
 "
 " ============= <LEADER> 配置 END ==============
 
@@ -134,14 +137,6 @@ set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~20%' }
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <space><space> :Buffers<CR>
-
-" fzf -> Ag
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
-nnoremap <silent> <Leader>a :Ag<CR>
 
 " NERDTree
 noremap <silent> <C-n> :NERDTreeToggle<CR>
