@@ -100,6 +100,7 @@ exe "set <A-b>=\eb"
 exe "set <A-f>=\ef"
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
+nnoremap <silent> <c-]> :<c-u>rightbelow vertical stjump <c-r><c-w><cr>
 
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=232
@@ -116,7 +117,7 @@ noremap <silent> <leader>O :call <SID>OnlyCurrentBufferCodcodog()<CR>
 noremap <silent> <leader>v :vsp<CR>
 noremap <silent> <leader>s :sp<CR><C-W>k
 noremap <silent> <leader>q :quit<CR>
-noremap <silent> <leader>d :bd<CR>
+noremap <silent> <leader>d :bw<CR>
 vnoremap <silent> <leader>a :Tab/=<CR>
 vnoremap <silent> <leader>> :Tab/=><CR>
 noremap <silent> <leader>n :noh<CR>
