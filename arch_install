@@ -49,7 +49,7 @@ Server = http://mirrors.sohu.com/archlinux/$repo/os/$arch' /etc/pacman.d/mirrorl
 pacman -S iw wpa_supplicant dialog bash-completion xorg xorg-xinit\
   xf86-video-nouveau awesome terminator chromium firefox wqy-microhei fcitx\
   fcitx-im fcitx-configtool fcitx-sunpinyin shadowsocks-qt5 ranger thunar\
-  ntfs-3g gvfs-mtp gvim httpie mysql-workbench
+  ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat
 
 echo -e '\033[0;31mFinish system basic config, but still need to install system boot manually: grub or system-boot.\033[0m'
 exit 0
