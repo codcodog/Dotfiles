@@ -43,6 +43,7 @@ call plug#end()
 " ============= Plug 配置 END =============
 
 
+
 " ============= Options 配置 START =============
 "
 set expandtab                " 设置tab键换空格
@@ -74,12 +75,14 @@ set statusline+=%5P                                         " Percentage through
 " ============= Options 配置 END =============
 
 
+
 " ============= 缩写配置 START =============
 "
 iabbrev #s // ------------------------------------------------------------------------<ESC>
 iabbrev !- <!--more-->
 "
 " ============= 缩写配置 END =============
+
 
 
 " ============= 映射键 配置 START =============
@@ -108,12 +111,12 @@ highlight ColorColumn ctermbg=232
 " ============= 映射键 配置 END =============
 
 
+
 " ============= <LEADER> 配置 START =============
 "
 let mapleader=','   " 设置 <leader> 键
 noremap <silent> <leader>w :update<CR>
 noremap <silent> <leader>o :only<CR>
-noremap <silent> <leader>O :call <SID>OnlyCurrentBufferCodcodog()<CR>
 noremap <silent> <leader>v :vsp<CR>
 noremap <silent> <leader>s :sp<CR><C-W>k
 noremap <silent> <leader>q :quit<CR>
@@ -128,6 +131,17 @@ noremap <leader>. :source $MYVIMRC<CR>
 nnoremap <Leader>a :<C-u>Ag <C-r><C-w><CR>
 "
 " ============= <LEADER> 配置 END ==============
+
+
+
+" ============= 自定义命令配置 START =============
+"
+" buffers management
+command! Clean %bw
+command! Only  call <SID>OnlyCurrentBufferCodcodog()
+"
+" ============= 自定义命令配置 END =============
+
 
 
 " ============= 插件配置 START =============
@@ -159,6 +173,7 @@ syntax on                    " 开启文件类型侦测
 let g:indentLine_enabled = 0 " 默认关闭
 "
 " ============= 插件配置 END =============
+
 
 
 " ============= 自定义配置 START =============
