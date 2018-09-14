@@ -38,7 +38,7 @@ Plug 'vim-scripts/taglist.vim', {'on': 'TlistToggle'}
 Plug 'junegunn/fzf.vim'
 
 " theme
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'phanviet/vim-monokai-pro'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end() 
@@ -49,12 +49,12 @@ call plug#end()
 
 " ============= Theme 配置 START =============
 "
-syntax on
-color dracula
+set termguicolors
+colorscheme monokai_pro
 
 " 超过列80设置背景色
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=016
+" let &colorcolumn=join(range(81,999),",")
+" highlight ColorColumn ctermbg=232
 "
 " ============= Theme 配置 END =============
 
