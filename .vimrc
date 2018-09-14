@@ -51,6 +51,10 @@ call plug#end()
 "
 syntax on
 color dracula
+
+" 超过列80设置背景色
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=016
 "
 " ============= Theme 配置 END =============
 
@@ -116,9 +120,6 @@ exe "set <A-b>=\eb"
 exe "set <A-f>=\ef"
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
-
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=232
 "
 " ============= 映射键 配置 END =============
 
