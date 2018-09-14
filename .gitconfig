@@ -6,3 +6,5 @@
 [user]
 	name = codcodog
 	email = codcodog@gmail.com
+[core]
+    editor = vim
