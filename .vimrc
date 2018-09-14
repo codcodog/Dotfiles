@@ -37,10 +37,22 @@ Plug 'vim-scripts/taglist.vim', {'on': 'TlistToggle'}
 " fuzzy finding
 Plug 'junegunn/fzf.vim'
 
+" theme
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end() 
 "
 " ============= Plug 配置 END =============
+
+
+
+" ============= Theme 配置 START =============
+"
+syntax on
+color dracula
+"
+" ============= Theme 配置 END =============
 
 
 
