@@ -38,7 +38,7 @@ Plug 'vim-scripts/taglist.vim', {'on': 'TlistToggle'}
 Plug 'junegunn/fzf.vim'
 
 " theme
-Plug 'phanviet/vim-monokai-pro'
+Plug 'morhetz/gruvbox'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end() 
@@ -49,8 +49,10 @@ call plug#end()
 
 " ============= Theme 配置 START =============
 "
-set termguicolors
-colorscheme monokai_pro
+" set termguicolors
+let g:gruvbox_contrast_dark = 'hard'
+set background=dark
+colorscheme gruvbox
 
 " 超过列80设置背景色
 " let &colorcolumn=join(range(81,999),",")
@@ -102,7 +104,6 @@ iabbrev ?? <?php<CR>/**<CR>@Author Cryven<CR>@Date   <ESC>:r! date "+\%Y-\%m-\%d
 
 
 " ============= 映射键 配置 START =============
-"
 inoremap jj <ESC>
 noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
