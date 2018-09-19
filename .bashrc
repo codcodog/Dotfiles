@@ -22,4 +22,6 @@ HISTFILESIZE=5000
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-PS1='[\u@\h \W]\$ '
+red="\e[1;31m"
+color_end="\e[m"
+PS1="${red}\u@\h \W \$ ${color_end}"
