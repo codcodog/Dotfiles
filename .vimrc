@@ -121,6 +121,7 @@ exe "set <A-b>=\eb"
 exe "set <A-f>=\ef"
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
+tnoremap <Esc> <C-W>N
 "
 " ============= 映射键 配置 END =============
 
