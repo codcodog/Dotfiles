@@ -8332,4 +8332,17 @@ zip_open
 zip_read
 zlib_get_coding_type
 __halt_compiler
+public
+protected
+private
+static
+final
+namespace
+function
+extends
+switch
+case
+implements
+interface
+class
 
