@@ -122,6 +122,7 @@ exe "set <A-f>=\ef"
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
 tnoremap <Esc> <C-W>N
+noremap <silent><C-]> :<C-u>MultiTag <C-r><C-w><CR>
 "
 " ============= 映射键 配置 END =============
 
@@ -157,6 +158,40 @@ noremap <silent> <leader>h :History<CR>
 " buffers management
 command! Clean %bw
 command! Only  call <SID>OnlyCurrentBufferCodcodog()
+
+" dependent on fzf plugin
+command! -bang -nargs=* MultiTag call <SID>multitag(<q-args>)
+
+function! s:multitag(query)
+    let pattern = '^'.a:query.'$'
+    let tags    = taglist(pattern)
+    let qfl     = []
+
+    " only one tag name
+    if (len(tags) <= 1)
+        silent execute 'silent! tag '.a:query
+        return
+    endif
+
+    " multiple tag names
+    for tag in tags
+        let filename = tag['filename']
+        let pattern = tag['cmd']
+        let des = filename . '|' . pattern
+
+        call add(qfl, des)
+    endfor
+
+    call fzf#run({'source': qfl, 'sink': function('s:tagsink'), 'down': '40%'})
+endfunction
+
+function! s:tagsink(tag)
+    let tmp = split(a:tag, '|')
+    let file = tmp[0]
+    let cmd = tmp[1]
+
+    silent execute 'silent! e '.file.'|silent! '.cmd.'|normal zz'
+endfunction
 "
 " ============= 自定义命令配置 END =============
 
