@@ -145,6 +145,8 @@ noremap <silent> <leader>c :botright terminal ++rows=15<CR>
 
 " fzf -> Ag
 nnoremap <Leader>a :<C-u>Ag <C-r><C-w><CR>
+" fzf -> History
+noremap <silent> <leader>h :History<CR>
 "
 " ============= <LEADER> 配置 END ==============
 
@@ -165,6 +167,7 @@ command! Only  call <SID>OnlyCurrentBufferCodcodog()
 " fzf
 set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~20%' }
+
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <space><space> :Buffers<CR>
 
