@@ -168,8 +168,14 @@ function! s:multitag(query)
     let qfl     = []
 
     " only one tag name
-    if (len(tags) <= 1)
+    if (len(tags) == 1)
         silent execute 'silent! tag '.a:query
+        return
+    " no tags
+    elseif (len(tags) == 0)
+        echohl WarningMsg
+        echo 'Tags Not Found.'
+        echohl None
         return
     endif
 
@@ -182,7 +188,7 @@ function! s:multitag(query)
         call add(qfl, des)
     endfor
 
-    call fzf#run({'source': qfl, 'sink': function('s:tagsink'), 'down': '40%'})
+    call fzf#run({'source': qfl, 'sink': function('s:tagsink'), 'down': '~20%'})
 endfunction
 
 function! s:tagsink(tag)
