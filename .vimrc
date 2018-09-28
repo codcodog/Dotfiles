@@ -196,7 +196,7 @@ function! s:tagsink(tag)
     let file = tmp[0]
     let cmd = tmp[1]
 
-    silent execute 'silent! e '.file.'|silent! '.cmd.'|normal zz'
+    execute 'silent! e '.file.'|set ws|silent! '.cmd.'|set nows|normal zz'
 endfunction
 "
 " ============= 自定义命令配置 END =============
