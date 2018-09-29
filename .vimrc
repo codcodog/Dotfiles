@@ -169,7 +169,7 @@ function! s:multitag(query)
 
     " only one tag name
     if (len(tags) == 1)
-        silent execute 'silent! tag '.a:query
+        silent execute 'silent! tag '.a:query.'|normal! zz'
         return
     " no tags
     elseif (len(tags) == 0)
@@ -196,7 +196,7 @@ function! s:tagsink(tag)
     let file = tmp[0]
     let cmd = tmp[1]
 
-    execute 'silent! e '.file.'|set ws|silent! '.cmd.'|set nows|normal zz'
+    execute 'silent! e '.file.'|set ws|silent! '.cmd.'|set nows|normal! zz'
 endfunction
 "
 " ============= 自定义命令配置 END =============
