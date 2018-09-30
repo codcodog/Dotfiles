@@ -182,8 +182,8 @@ function! s:multitag(query)
     " multiple tag names
     for tag in tags
         let filename = tag['filename']
-        let pattern = tag['cmd']
-        let des = filename . '|' . pattern
+        let pattern  = tag['cmd']
+        let des      = filename . '|' . pattern
 
         call add(qfl, des)
     endfor
@@ -192,9 +192,9 @@ function! s:multitag(query)
 endfunction
 
 function! s:tagsink(tag)
-    let tmp = split(a:tag, '|')
+    let tmp  = split(a:tag, '|')
     let file = tmp[0]
-    let cmd = tmp[1]
+    let cmd  = tmp[1]
 
     execute 'silent! e '.file.'|set ws|silent! '.cmd.'|set nows|normal! zz'
 endfunction
