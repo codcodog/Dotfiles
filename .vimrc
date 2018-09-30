@@ -198,6 +198,8 @@ function! s:tagsink(tag)
 
     execute 'silent! e '.file.'|set ws|silent! '.cmd.'|set nows|normal! zz'
 endfunction
+
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore tags', {'options': '--delimiter : --nth 4..'}, <bang>0)
 "
 " ============= 自定义命令配置 END =============
 
