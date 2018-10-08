@@ -71,6 +71,7 @@ set shiftwidth=4             " 换行时行间交错使用4个空格
 set autoindent               " 自动对齐
 set cindent                  " 自动缩进4空格
 set smartindent              " 智能自动缩进
+set number                   " 设置行号
 set rnu                      " 相对行号
 set incsearch                " 查找book时，当输入/b时会自动找到
 set hlsearch                 " 开启高亮显示结果
