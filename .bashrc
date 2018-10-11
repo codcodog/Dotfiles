@@ -13,6 +13,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias grep='grep --color=auto'
 alias cat='bat'
+alias phpcs='phpcs fix -v --diff --diff-format=udiff --dry-run'
 alias ..='cd ..'
 alias ...='cd ../..'
 
