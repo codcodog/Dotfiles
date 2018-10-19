@@ -39,6 +39,7 @@ Plug 'junegunn/fzf.vim'
 
 " theme
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end() 
@@ -49,10 +50,13 @@ call plug#end()
 
 " ============= Theme 配置 START =============
 "
-" set termguicolors
-let g:gruvbox_contrast_dark = 'hard'
-set background=dark
-colorscheme gruvbox
+" let g:gruvbox_contrast_dark = 'hard'
+" set background=dark
+" colorscheme gruvbox
+
+set termguicolors
+syntax on
+color dracula
 
 " 超过列80设置背景色
 " let &colorcolumn=join(range(81,999),",")
