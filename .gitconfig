@@ -3,6 +3,7 @@
 	df = diff
     co = checkout
     br = branch
+    ll = log --oneline
 [user]
 	name = codcodog
 	email = codcodog@gmail.com
