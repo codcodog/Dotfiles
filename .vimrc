@@ -37,6 +37,9 @@ Plug 'vim-scripts/taglist.vim', {'on': 'TlistToggle'}
 " fuzzy finding
 Plug 'junegunn/fzf.vim'
 
+" vue
+Plug 'posva/vim-vue'
+
 " theme
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -58,8 +61,8 @@ set termguicolors
 syntax on
 color dracula
 
-" 超过列80设置背景色
-" let &colorcolumn=join(range(81,999),",")
+" 超过列120设置背景色
+" let &colorcolumn=join(range(121,999),",")
 " highlight ColorColumn ctermbg=232
 "
 " ============= Theme 配置 END =============
@@ -79,8 +82,10 @@ set number                   " 设置行号
 set rnu                      " 相对行号
 set incsearch                " 查找book时，当输入/b时会自动找到
 set hlsearch                 " 开启高亮显示结果
-set incsearch                " 开启实时搜索功能
-set nowrapscan               " 搜索到文件两端时不重新搜索
+" set incsearch              " 开启实时搜索功能
+" set nowrapscan             " 搜索到文件两端时不重新搜索
+set noincsearch
+set wrapscan
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 set splitright               " 设置vsplit在右边
 set laststatus=2             " 总是显示状态栏
@@ -102,7 +107,6 @@ set statusline+=%5P                                         " Percentage through
 " ============= 缩写配置 START =============
 "
 iabbrev #s // ------------------------------------------------------------------------<ESC>
-iabbrev !- <!--more-->
 iabbrev ??? <?php<CR>/**<CR>@Author Cryven<CR>@Date   <ESC>:r! date "+\%Y-\%m-\%d \%H:\%M:\%S"<CR>kJA<CR><ESC>S*/<CR><CR><ESC>
 " ============= 缩写配置 END =============
 
