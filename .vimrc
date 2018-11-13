@@ -114,6 +114,8 @@ iabbrev ??? <?php<CR>/**<CR>@Author Cryven<CR>@Date   <ESC>:r! date "+\%Y-\%m-\%
 
 " ============= 映射键 配置 START =============
 inoremap jj <ESC>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 noremap <C-j> <C-w>j<CR>
 noremap <C-k> <C-w>k<CR>
 noremap <C-h> <C-w>W<CR>
