@@ -29,6 +29,6 @@ parse_branch()
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-red="\e[1;31m"
-color_end="\e[m"
+red="\[\e[1;31m\]"
+color_end="\[\e[m\]"
 PS1="${red}\u@\h \W \$(parse_branch)\$ ${color_end}"
