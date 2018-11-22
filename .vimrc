@@ -61,6 +61,9 @@ set termguicolors
 syntax on
 color dracula
 
+syntax sync minlines=256
+set synmaxcol=300  " stop syntax highlighting this many columns out
+
 " 超过列120设置背景色
 " let &colorcolumn=join(range(121,999),",")
 " highlight ColorColumn ctermbg=232
@@ -108,6 +111,7 @@ set statusline+=%5P                                         " Percentage through
 "
 iabbrev #s // ------------------------------------------------------------------------<ESC>
 iabbrev ??? <?php<CR>/**<CR>@Author Cryven<CR>@Date   <ESC>:r! date "+\%Y-\%m-\%d \%H:\%M:\%S"<CR>kJA<CR><ESC>S*/<CR><CR><ESC>
+iabbrev @@ /** @var   **/<ESC>5hi
 " ============= 缩写配置 END =============
 
 
@@ -300,7 +304,7 @@ augroup END
 " Shell 文件，缩进修改为2个空格
 augroup filetype_sh
     autocmd!
-    autocmd FileType sh
+    autocmd FileType sh,yaml
                 \ set tabstop=2 |
                 \ set shiftwidth=2
 augroup END
