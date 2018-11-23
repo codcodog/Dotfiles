@@ -64,6 +64,9 @@ color dracula
 syntax sync minlines=256
 set synmaxcol=300  " stop syntax highlighting this many columns out
 
+" 修复大文件时，语法不高亮
+nnoremap <silent> <F5> :syntax sync fromstart<CR>
+
 " 超过列120设置背景色
 " let &colorcolumn=join(range(121,999),",")
 " highlight ColorColumn ctermbg=232
