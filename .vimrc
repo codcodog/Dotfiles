@@ -53,19 +53,18 @@ call plug#end()
 
 " ============= Theme 配置 START =============
 "
-" let g:gruvbox_contrast_dark = 'hard'
-" set background=dark
-" colorscheme gruvbox
-
 set termguicolors
 syntax on
-color dracula
 
-syntax sync minlines=256
+syntax sync minlines=50
 set synmaxcol=300  " stop syntax highlighting this many columns out
-
-" 修复大文件时，语法不高亮
 nnoremap <silent> <F5> :syntax sync fromstart<CR>
+
+let g:gruvbox_contrast_dark = 'hard'
+set background=dark
+colorscheme gruvbox
+
+" color dracula
 
 " 超过列120设置背景色
 " let &colorcolumn=join(range(121,999),",")
