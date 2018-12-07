@@ -64,10 +64,18 @@ let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 colorscheme gruvbox
 
+" 覆盖主题的颜色设置
+augroup DIY
+    autocmd!
+    autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=#141617
+    autocmd ColorScheme * highlight StatusLine ctermbg=NONE guibg=#141617
+    autocmd ColorScheme * highlight ColorColumn ctermbg=NONE guibg=#141717
+augroup END
+
 " color dracula
 
 " 超过列120设置背景色
-" let &colorcolumn=join(range(121,999),",")
+let &colorcolumn=join(range(121,999),",")
 " highlight ColorColumn ctermbg=232
 "
 " ============= Theme 配置 END =============
