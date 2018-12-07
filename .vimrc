@@ -67,9 +67,9 @@ colorscheme gruvbox
 " 覆盖主题的颜色设置
 augroup DIY
     autocmd!
-    autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=#141617
-    autocmd ColorScheme * highlight StatusLine ctermbg=NONE guibg=#141617
-    autocmd ColorScheme * highlight ColorColumn ctermbg=NONE guibg=#141717
+    autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=#1d1f21
+    autocmd ColorScheme * highlight StatusLine ctermbg=NONE guibg=#1d1f21
+    autocmd ColorScheme * highlight ColorColumn ctermbg=NONE guibg=#1a1b1d
 augroup END
 
 " color dracula
