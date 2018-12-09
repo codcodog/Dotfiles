@@ -69,6 +69,8 @@ augroup DIY
     autocmd!
     autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=#1d1f21
     autocmd ColorScheme * highlight StatusLine ctermbg=NONE guibg=#1d1f21
+    autocmd ColorScheme * highlight CursorLine ctermbg=NONE guibg=#26292b
+    autocmd ColorScheme * highlight! link Visual CursorLine
     autocmd ColorScheme * highlight ColorColumn ctermbg=NONE guibg=#1a1b1d
 augroup END
 
@@ -104,6 +106,7 @@ set splitright               " 设置vsplit在右边
 set laststatus=2             " 总是显示状态栏
 set directory=/tmp           " 设置swp文件存储目录
 set cscopetag
+set cursorline               " 高亮当前行
 
 set statusline=%t                                           " 文件名
 set statusline+=%4m%r%w                                     " modified flag, Modified, Readonly ?
