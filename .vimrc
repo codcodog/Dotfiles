@@ -26,7 +26,7 @@ Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " 前端emmet插件
-Plug 'mattn/emmet-vim', {'for': 'html'}
+Plug 'mattn/emmet-vim', {'for': ['html', 'vue']}
 
 " 查看目录结构
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
