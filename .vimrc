@@ -98,7 +98,7 @@ set rnu                      " 相对行号
 set incsearch                " 查找book时，当输入/b时会自动找到
 set hlsearch                 " 开启高亮显示结果
 " set incsearch              " 开启实时搜索功能
-" set nowrapscan             " 搜索到文件两端时不重新搜索
+set nowrapscan             " 搜索到文件两端时不重新搜索
 set noincsearch
 set wrapscan
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
