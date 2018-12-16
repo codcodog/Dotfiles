@@ -1,3 +1,14 @@
+"""""""""""""""""""""""""""""""""""""""""""""
+" Cryven's vimrc
+"
+" Blog: https://github.com/codcodog/Blog/issues
+" Note: 此配置仅为个人使用, 欢迎参考和交流.
+" License: Vim License
+"
+"""""""""""""""""""""""""""""""""""""""""""""
+
+
+
 " ============= Plug 配置 END =============
 "
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -51,7 +62,7 @@ call plug#end()
 
 
 
-" ============= Theme 配置 START =============
+" ============= Theme 配置 START ==========
 "
 set termguicolors
 syntax on
@@ -93,17 +104,14 @@ set cindent                  " 自动缩进4空格
 set smartindent              " 智能自动缩进
 set number                   " 设置行号
 set rnu                      " 相对行号
-set incsearch                " 查找book时，当输入/b时会自动找到
 set hlsearch                 " 开启高亮显示结果
-" set incsearch              " 开启实时搜索功能
-set nowrapscan             " 搜索到文件两端时不重新搜索
-set noincsearch
-set wrapscan
+set noincsearch              " 不实时查找
+set wrapscan                 " 查找到底部重新回到头部
 set tags=tags;/              " 设置ctags, vim在当前目录找不到tags文件时请到上层目录查找。
 set splitright               " 设置vsplit在右边
 set laststatus=2             " 总是显示状态栏
 set directory=/tmp           " 设置swp文件存储目录
-set cscopetag
+set cscopetag                " 开启 cscope
 set cursorline               " 高亮当前行
 
 set statusline=%t                                           " 文件名
@@ -123,6 +131,7 @@ set statusline+=%5P                                         " Percentage through
 iabbrev #s // ------------------------------------------------------------------------<ESC>
 iabbrev ??? <?php<CR>/**<CR>@Author Cryven<CR>@Date   <ESC>:r! date "+\%Y-\%m-\%d \%H:\%M:\%S"<CR>kJA<CR><ESC>S*/<CR><CR><ESC>
 iabbrev @@ /** @var **/<ESC>3hi
+"
 " ============= 缩写配置 END =============
 
 
@@ -182,7 +191,6 @@ noremap <silent> <leader>h :History<CR>
 " ============= 自定义命令配置 START =============
 "
 " buffers management
-command! Clean %bw
 command! Only  call <SID>OnlyCurrentBufferCodcodog()
 
 " dependent on fzf plugin
