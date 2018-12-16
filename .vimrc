@@ -64,23 +64,19 @@ let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 colorscheme gruvbox
 
-" 覆盖主题的颜色设置
+" 覆盖 gruvbox 主题颜色设置
 augroup DIY
     autocmd!
     autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=#1d1f21
-    autocmd ColorScheme * highlight StatusLine ctermbg=NONE guibg=#1d1f21
-    autocmd ColorScheme * highlight CursorLine ctermbg=NONE guibg=#26292b
+    autocmd ColorScheme * highlight CursorLine ctermbg=NONE guibg=#26292b gui=reverse
     autocmd WinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
     autocmd ColorScheme * highlight! link Visual CursorLine
-    autocmd ColorScheme * highlight ColorColumn ctermbg=NONE guibg=#1a1b1d
+    autocmd InsertEnter * highlight ColorColumn ctermbg=NONE guibg=#1a1b1d
+    autocmd InsertLeave * highlight ColorColumn ctermbg=NONE guibg=NONE
+    autocmd InsertEnter * let &colorcolumn=join(range(121, 999), ',')
+    autocmd InsertLeave * let &colorcolumn=0
 augroup END
-
-" color dracula
-
-" 超过列120设置背景色
-let &colorcolumn=join(range(121, 999),",")
-" highlight ColorColumn ctermbg=232
 "
 " ============= Theme 配置 END =============
 
