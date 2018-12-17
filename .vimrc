@@ -79,7 +79,7 @@ colorscheme gruvbox
 augroup DIY
     autocmd!
     autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=#1d1f21
-    autocmd ColorScheme * highlight CursorLine ctermbg=NONE guibg=#26292b gui=reverse
+    autocmd ColorScheme * highlight CursorLine ctermbg=NONE guibg=#26292b
     autocmd WinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
     autocmd ColorScheme * highlight! link Visual CursorLine
