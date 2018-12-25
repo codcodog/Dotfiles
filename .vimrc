@@ -230,7 +230,7 @@ function! s:tagsink(tag)
     let file = tmp[0]
     let cmd  = tmp[1]
 
-    execute 'silent! e '.file.'|set ws|silent! '.cmd.'|set nows|normal! zz'
+    execute 'silent! e '.file.'|set ws|silent! '.cmd.'|normal! zz'
 endfunction
 
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore tags', {'options': '--delimiter : --nth 4..'}, <bang>0)
