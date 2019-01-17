@@ -76,7 +76,7 @@ set_mirrors:
 	Server = http://mirrors.sohu.com/archlinux/$$repo/os/$$arch' /etc/pacman.d/mirrorlist
 
 .PHONY: install_tools
-install_tools:
+install_tools: $(YAY)
 	@echo ''
 	@echo 'Install tools.'
 	@$(PACMAN) $(PACMAN_OPTION) $(tools)
