@@ -1,9 +1,14 @@
 # Arch 系统配置自动化脚本
 #
-# 配置主要包括几个方面：
+# 配置主要包括：
 # - 基本配置
 # - 工具安装
 # - 工具配置
+#
+# 分两部分执行
+# 1. 系统初步安装，chroot 进系统之后执行：make
+# 2. 系统初步配置完成之后，重启登录 cryven 帐号，执行：make vim
+# 3. 安装 grub （可选）
 
 PACMAN = pacman
 PACMAN_OPTION = -S
@@ -29,17 +34,22 @@ AG = $(prefix)/ag
 AG_NAME = the_silver_searcher
 
 init_config = set_time set_user set_mirrors install_tools config_files
+cryven_home = /home/cryven
 vim_dep = $(GIT) $(NPM) $(GVIM) $(FZF) $(AG)
+
+GRUB = $(prefix)/grub
+GRUB_NAME = grub
+dev_sdx ?= /dev/sda # 硬盘
 
 tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau awesome \
 				terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin \
-				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat
+				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat ctags
 aur_tools ?= xmind okular mycli
 
 .PHONY: all
 all: $(init_config)
 	@echo ''
-	@echo -e '\033[0;31mInitializing Arch System Done, Enjoy It.\033[0m'
+	@echo -e '\033[0;31mInitializing Arch System Done, But System Boot Not Installed Yet.\033[0m'
 	@echo ''
 
 .PHONY: set_time
@@ -88,19 +98,31 @@ $(YAY):
 	@git clone https://aur.archlinux.org/yay.git
 	@cd yay && makepkg -si
 
+$(cryven_home): set_user
+
 .PHONY: config_files
-config_files:
+config_files: $(cryven_home)
 	@echo ''
 	@echo 'Config tools.'
-	@cp -f $(current_dir)/.Xmodmap ~
-	@cp -f $(current_dir)/.bashrc ~
-	@cp -f $(current_dir)/.gitconfig ~
-	@cp -f $(current_dir)/.xinitrc ~
-	@if [[ ! -d ~/.config/awesome ]] ; then \
-		mkdir -p ~/.config/awesome; \
+	@cp -f $(current_dir)/.Xmodmap $(cryven_home)
+	@cp -f $(current_dir)/.bashrc $(cryven_home)
+	@cp -f $(current_dir)/.gitconfig $(cryven_home)
+	@cp -f $(current_dir)/.xinitrc $(cryven_home)
+	@if [[ ! -d $(cryven_home)/.config/awesome ]] ; then \
+		mkdir -p $(cryven_home)/.config/awesome; \
 	fi
-	@cp $(current_dir)/rc.lua ~/.config/awesome/rc.lua
-	@cd ~/.config/awesome && git clone https://github.com/streetturtle/awesome-wm-widgets.git
+	@cp $(current_dir)/rc.lua $(cryven_home)/.config/awesome/rc.lua
+	@cd $(cryven_home)/.config/awesome && git clone https://github.com/streetturtle/awesome-wm-widgets.git
+
+$(GRUB):
+	@$(PACMAN) $(PACMAN_OPTION) $(GRUB_NAME)
+
+.PHONY: grub
+grub: $(GRUB)
+	@echo ''
+	@echo 'Install grub'
+	@grub-install --target=i386-pc --recheck $(dev_sdx)
+	@grub-mkconfig -o /boot/grub/grub.cfg
 
 $(GIT):
 	@$(PACMAN) $(PACMAN_OPTION) $(GIT_NAME)
