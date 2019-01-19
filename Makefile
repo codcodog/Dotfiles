@@ -1,14 +1,16 @@
 # Arch 系统配置自动化脚本
 #
+# Copyright (C) 2019 Cryven <codcodog at gmail dot com>
+#
 # 配置主要包括：
 # - 基本配置
 # - 工具安装
 # - 工具配置
 #
-# 分两部分执行
-# 1. 系统初步安装，chroot 进系统之后执行：make
-# 2. 系统初步配置完成之后，重启登录 cryven 帐号，执行：make vim
-# 3. 安装 grub （可选）
+# 主要有以下几部分：
+# 1. 基础系统安装，chroot 之后执行：make
+# 2. 安装 grub （可选）
+# 3. 初步配置完成之后，重启登录 cryven 帐号，执行：make install
 
 PACMAN = pacman
 PACMAN_OPTION = -S
@@ -49,13 +51,12 @@ aur_tools ?= xmind okular mycli
 .PHONY: all
 all: $(init_config)
 	@echo ''
-	@echo -e '\033[0;31mInitializing Arch System Done, But System Boot Not Installed Yet.\033[0m'
+	@echo -e '\033[0;31mInitializing Arch System Done, But System Boot Not Installed Yet.(Run `make grub` or install manually.)\033[0m'
 	@echo ''
 
 .PHONY: set_time
 set_time:
-	@echo ''
-	@echo 'Config charset and timezone.'
+	@echo '' @echo 'Config charset and timezone.'
 	@sed -i -e '/#en_US\.UTF-8/s/^.//' -e '/#zh_CN\.UTF-8/s/^.//' /etc/locale.gen
 	@locale-gen 2>&1 > /dev/null
 	@echo LANG=en_US.UTF-8 > /etc/locale.conf
@@ -86,17 +87,10 @@ set_mirrors:
 	Server = http://mirrors.sohu.com/archlinux/$$repo/os/$$arch' /etc/pacman.d/mirrorlist
 
 .PHONY: install_tools
-install_tools: $(YAY)
+install_tools:
 	@echo ''
 	@echo 'Install tools.'
 	@$(PACMAN) $(PACMAN_OPTION) $(tools)
-	@$(YAY) $(PACMAN_OPTION) $(aur_tools)
-
-$(YAY):
-	@echo ''
-	@echo 'Install yay.'
-	@git clone https://aur.archlinux.org/yay.git
-	@cd yay && makepkg -si
 
 $(cryven_home): set_user
 
@@ -124,21 +118,43 @@ grub: $(GRUB)
 	@grub-install --target=i386-pc --recheck $(dev_sdx)
 	@grub-mkconfig -o /boot/grub/grub.cfg
 
+$(YAY):
+	@echo ''
+	@echo 'Install yay.'
+	@git clone https://aur.archlinux.org/yay.git
+	@cd yay && makepkg -si
+
+install: aur_tools vim
+
+.PHONY: aur_tools
+aur_tools: $(YAY)
+	@$(YAY) $(PACMAN_OPTION) $(aur_tools)
+
 $(GIT):
+	@echo ''
+	@echo 'Install $(GIT_NAME).'
 	@$(PACMAN) $(PACMAN_OPTION) $(GIT_NAME)
 
 $(NPM):
+	@echo ''
+	@echo 'Install $(NPM_NAME).'
 	@$(PACMAN) $(PACMAN_OPTION) $(NPM_NAME)
 	@$(NPM) -g install instant-markdown-d
 
 $(GVIM):
+	@echo ''
+	@echo 'Install $(GVIM_NAME)'
 	@$(PACMAN) $(PACMAN_OPTION) $(GVIM_NAME)
 
 $(FZF):
+	@echo ''
+	@echo 'Install $(FZF_NAME)'
 	@$(PACMAN) $(PACMAN_OPTION) $(FZF_NAME)
 	@cp -f /usr/share/fzf/key-bindings.bash ~/.fzf.bash
 
 $(AG):
+	@echo ''
+	@echo 'Install $(AG_NAME)'
 	@$(PACMAN) $(PACMAN_OPTION) $(AG_NAME)
 
 .PHONY: vim
