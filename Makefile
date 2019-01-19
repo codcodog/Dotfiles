@@ -116,7 +116,7 @@ config_files: $(cryven_home)
 	cp -f $(current_dir)/config $(cryven_home)/.config/terminator/config
 	cp -f $(current_dir)/rc.lua $(cryven_home)/.config/awesome/rc.lua
 	cd $(cryven_home)/.config/awesome && git clone https://github.com/streetturtle/awesome-wm-widgets.git
-	chown -R cryven:users $(cryven_home)/.config # Note: 把权限给回 cryven 用户
+	chown -R cryven:users $(cryven_home)/.config # Note: give permission back to cryven.
 
 $(GRUB):
 	@$(PACMAN) $(PACMAN_OPTION) $(GRUB_NAME)
@@ -142,6 +142,7 @@ install: aur_tools vim
 .PHONY: aur_tools
 aur_tools: $(YAY)
 	@$(YAY) $(PACMAN_OPTION) $(aur_tools)
+	@systemctl restart openntpd # restart to adjust time.
 
 $(GIT):
 	@echo ''
