@@ -61,7 +61,7 @@ all: $(init_config)
 set_time:
 	@echo ''
 	@echo 'Config charset and timezone.'
-	sed -i -e '/#en_US\.UTF-8/s/^.//' -e '/#zh_CN\.UTF-8/s/^.//' /etc/locale.gen
+	@sed -i -e '/#en_US\.UTF-8/s/^.//' -e '/#zh_CN\.UTF-8/s/^.//' /etc/locale.gen
 	locale-gen
 	echo LANG=en_US.UTF-8 > /etc/locale.conf
 	ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -79,14 +79,14 @@ set_user:
 	useradd -m -g users -G wheel,storage,power -s /bin/bash cryven
 	@echo ''
 	@echo 'Set password for cryven'
-	passwd cryven
-	sed -i '/# %wheel ALL=(ALL) ALL/s/^..//' /etc/sudoers
+	@passwd cryven
+	@sed -i '/# %wheel ALL=(ALL) ALL/s/^..//' /etc/sudoers
 
 .PHONY: set_mirrors
 set_mirrors:
 	@echo ''
 	@echo 'Config mirrors.'
-	sed -i '6 a # China\
+	@sed -i '6 a # China\
 	Server = http://mirrors.163.com/archlinux/$$repo/os/$$arch\
 	Server = http://mirrors.aliyun.com/archlinux/$$repo/os/$$arch\
 	Server = http://mirrors.sohu.com/archlinux/$$repo/os/$$arch' /etc/pacman.d/mirrorlist
@@ -107,10 +107,10 @@ config_files: $(cryven_home)
 	cp -f $(current_dir)/.bashrc $(cryven_home)
 	cp -f $(current_dir)/.gitconfig $(cryven_home)
 	cp -f $(current_dir)/.xinitrc $(cryven_home)
-	if [[ ! -d $(cryven_home)/.config/awesome ]] ; then \
+	@if [[ ! -d $(cryven_home)/.config/awesome ]] ; then \
 		mkdir -p $(cryven_home)/.config/awesome; \
 	fi
-	if [[ -d $(cryven_home)/.config/terminator ]] ; then \
+	@if [[ ! -d $(cryven_home)/.config/terminator ]] ; then \
 		mkdir -p $(cryven_home)/.config/terminator; \
 	fi
 	cp -f $(current_dir)/config $(cryven_home)/.config/terminator/config
@@ -131,7 +131,7 @@ grub: $(GRUB)
 $(YAY):
 	@echo ''
 	@echo 'Install yay.'
-	if [[ -d /tmp/yay ]] ; then \
+	@if [[ -d /tmp/yay ]] ; then \
 		rm -rf /tmp/yay; \
 	fi
 	git clone https://aur.archlinux.org/yay.git /tmp/yay
@@ -163,7 +163,7 @@ $(FZF):
 	@echo ''
 	@echo 'Install $(FZF_NAME)'
 	@$(YAY) $(PACMAN_OPTION) $(FZF_NAME)
-	@cp -f /usr/share/fzf/key-bindings.bash ~/.fzf.bash
+	cp -f /usr/share/fzf/key-bindings.bash ~/.fzf.bash
 
 $(AG):
 	@echo ''
