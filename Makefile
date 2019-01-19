@@ -8,9 +8,11 @@
 # - 工具配置
 #
 # 主要有以下几部分：
-# 1. 基础系统安装，chroot 之后执行：make
+# 1. 基础系统安装，chroot 之后执行：`make`
 # 2. 安装 grub （可选）
-# 3. 初步配置完成之后，重启登录 cryven 帐号，执行：make install
+# 	- 分区若是 gpt 分区，/boot -> fat32
+# 	- 分区若是 dos 分区，则直接安装 grub 即可
+# 3. 初步配置完成之后，重启登录 cryven 帐号，执行：`make install`
 
 PACMAN = pacman
 PACMAN_OPTION = -S
@@ -45,7 +47,7 @@ dev_sdx ?= /dev/sda # 硬盘
 
 tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau awesome \
 				terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin \
-				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat ctags
+				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat ctags feh
 aur_tools ?= xmind okular mycli
 
 .PHONY: all
