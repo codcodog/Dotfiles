@@ -17,7 +17,6 @@
 PACMAN = pacman
 PACMAN_OPTION = -S
 
-SUDO = sudo
 YAY = $(prefix)/yay
 
 prefix ?= /usr/bin
@@ -112,6 +111,7 @@ config_files: $(cryven_home)
 	fi
 	@cp $(current_dir)/rc.lua $(cryven_home)/.config/awesome/rc.lua
 	@cd $(cryven_home)/.config/awesome && git clone https://github.com/streetturtle/awesome-wm-widgets.git
+	@chown -R cryven:users $(cryven_home)/.config # Note: 把权限赋予回给 cryven 用户
 
 $(GRUB):
 	@$(PACMAN) $(PACMAN_OPTION) $(GRUB_NAME)
@@ -133,7 +133,7 @@ install: aur_tools vim
 
 .PHONY: aur_tools
 aur_tools: $(YAY)
-	@$(SUDO) $(YAY) $(PACMAN_OPTION) $(aur_tools)
+	@$(YAY) $(PACMAN_OPTION) $(aur_tools)
 
 $(GIT):
 	@echo ''
