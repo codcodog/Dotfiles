@@ -47,7 +47,8 @@ dev_sdx ?= /dev/sda # 硬盘
 
 tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau awesome \
 				terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin \
-				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat ctags feh
+				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat ctags feh \
+				arandr
 aur_tools ?= xmind okular mycli
 
 .PHONY: all
@@ -58,7 +59,8 @@ all: $(init_config)
 
 .PHONY: set_time
 set_time:
-	@echo '' @echo 'Config charset and timezone.'
+	@echo ''
+	@echo 'Config charset and timezone.'
 	@sed -i -e '/#en_US\.UTF-8/s/^.//' -e '/#zh_CN\.UTF-8/s/^.//' /etc/locale.gen
 	@locale-gen 2>&1 > /dev/null
 	@echo LANG=en_US.UTF-8 > /etc/locale.conf
@@ -123,8 +125,8 @@ grub: $(GRUB)
 $(YAY):
 	@echo ''
 	@echo 'Install yay.'
-	@git clone https://aur.archlinux.org/yay.git
-	@cd yay && makepkg -si
+	@git clone https://aur.archlinux.org/yay.git /tmp/yay
+	@cd /tmp/yay && makepkg -si
 
 install: aur_tools vim
 
