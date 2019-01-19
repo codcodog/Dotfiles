@@ -15,7 +15,7 @@
 # 3. 初步配置完成之后，重启登录 cryven 帐号，执行：`make install`
 
 PACMAN = pacman
-PACMAN_OPTION = -Sy
+PACMAN_OPTION = -S --noconfirm
 
 YAY = $(prefix)/yay
 
