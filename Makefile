@@ -109,9 +109,13 @@ config_files: $(cryven_home)
 	@if [[ ! -d $(cryven_home)/.config/awesome ]] ; then \
 		mkdir -p $(cryven_home)/.config/awesome; \
 	fi
+	@if [[ -d $(cryven_home)/.config/terminator ]] ; then \
+		mkdir -p $(cryven_home)/.config/terminator; \
+	fi
+	@cp $(current_dir)/config $(cryven_home)/.config/terminator/config
 	@cp $(current_dir)/rc.lua $(cryven_home)/.config/awesome/rc.lua
 	@cd $(cryven_home)/.config/awesome && git clone https://github.com/streetturtle/awesome-wm-widgets.git
-	@chown -R cryven:users $(cryven_home)/.config # Note: 把权限赋予回给 cryven 用户
+	@chown -R cryven:users $(cryven_home)/.config # Note: 把权限给回 cryven 用户
 
 $(GRUB):
 	@$(PACMAN) $(PACMAN_OPTION) $(GRUB_NAME)
@@ -138,29 +142,29 @@ aur_tools: $(YAY)
 $(GIT):
 	@echo ''
 	@echo 'Install $(GIT_NAME).'
-	@$(PACMAN) $(PACMAN_OPTION) $(GIT_NAME)
+	@$(YAY) $(PACMAN_OPTION) $(GIT_NAME)
 
 $(NPM):
 	@echo ''
 	@echo 'Install $(NPM_NAME).'
-	@$(PACMAN) $(PACMAN_OPTION) $(NPM_NAME)
-	@$(NPM) -g install instant-markdown-d
+	@$(YAY) $(PACMAN_OPTION) $(NPM_NAME)
+	@$(NPM) install instant-markdown-d
 
 $(GVIM):
 	@echo ''
 	@echo 'Install $(GVIM_NAME)'
-	@$(PACMAN) $(PACMAN_OPTION) $(GVIM_NAME)
+	@$(YAY) $(PACMAN_OPTION) $(GVIM_NAME)
 
 $(FZF):
 	@echo ''
 	@echo 'Install $(FZF_NAME)'
-	@$(PACMAN) $(PACMAN_OPTION) $(FZF_NAME)
+	@$(YAY) $(PACMAN_OPTION) $(FZF_NAME)
 	@cp -f /usr/share/fzf/key-bindings.bash ~/.fzf.bash
 
 $(AG):
 	@echo ''
 	@echo 'Install $(AG_NAME)'
-	@$(PACMAN) $(PACMAN_OPTION) $(AG_NAME)
+	@$(YAY) $(PACMAN_OPTION) $(AG_NAME)
 
 .PHONY: vim
 vim: $(vim_dep)
