@@ -54,7 +54,8 @@ aur_tools ?= xmind okular mycli
 .PHONY: all
 all: $(init_config)
 	@echo ''
-	@echo -e '\033[0;31mInitializing Arch System Done, But System Boot Not Installed Yet.(Run `make grub` or install manually.)\033[0m'
+	@echo -e '\033[0;31mInitializing Arch System Done, But System Boot Not Installed Yet.\033[0m'
+	@echo -e '\033[0;31mRun `make grub` or install it manually.\033[0m'
 	@echo ''
 
 .PHONY: set_time
