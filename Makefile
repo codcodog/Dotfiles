@@ -15,7 +15,7 @@
 # 3. 初步配置完成之后，重启登录 cryven 帐号，执行：`make install`
 
 PACMAN = pacman
-PACMAN_OPTION = -S
+PACMAN_OPTION = -Sy
 
 YAY = $(prefix)/yay
 
@@ -61,31 +61,32 @@ all: $(init_config)
 set_time:
 	@echo ''
 	@echo 'Config charset and timezone.'
-	@sed -i -e '/#en_US\.UTF-8/s/^.//' -e '/#zh_CN\.UTF-8/s/^.//' /etc/locale.gen
-	@locale-gen 2>&1 > /dev/null
-	@echo LANG=en_US.UTF-8 > /etc/locale.conf
-	@ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-	@hwclock --systohc
+	sed -i -e '/#en_US\.UTF-8/s/^.//' -e '/#zh_CN\.UTF-8/s/^.//' /etc/locale.gen
+	locale-gen
+	echo LANG=en_US.UTF-8 > /etc/locale.conf
+	ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+	@$(PACMAN) $(PACMAN_OPTION) openntpd
+	@systemctl enable openntpd
 
 .PHONY: set_user
 set_user:
 	@echo ''
 	@echo 'Config User.'
-	@echo codcodog > /etc/hostname
+	echo codcodog > /etc/hostname
 	@echo ''
 	@echo 'Set password for root.'
 	@passwd
-	@useradd -m -g users -G wheel,storage,power -s /bin/bash cryven
+	useradd -m -g users -G wheel,storage,power -s /bin/bash cryven
 	@echo ''
 	@echo 'Set password for cryven'
-	@passwd cryven
-	@sed -i '/# %wheel ALL=(ALL) ALL/s/^..//' /etc/sudoers
+	passwd cryven
+	sed -i '/# %wheel ALL=(ALL) ALL/s/^..//' /etc/sudoers
 
 .PHONY: set_mirrors
 set_mirrors:
 	@echo ''
 	@echo 'Config mirrors.'
-	@sed -i '6 a # China\
+	sed -i '6 a # China\
 	Server = http://mirrors.163.com/archlinux/$$repo/os/$$arch\
 	Server = http://mirrors.aliyun.com/archlinux/$$repo/os/$$arch\
 	Server = http://mirrors.sohu.com/archlinux/$$repo/os/$$arch' /etc/pacman.d/mirrorlist
@@ -102,20 +103,20 @@ $(cryven_home): set_user
 config_files: $(cryven_home)
 	@echo ''
 	@echo 'Config tools.'
-	@cp -f $(current_dir)/.Xmodmap $(cryven_home)
-	@cp -f $(current_dir)/.bashrc $(cryven_home)
-	@cp -f $(current_dir)/.gitconfig $(cryven_home)
-	@cp -f $(current_dir)/.xinitrc $(cryven_home)
-	@if [[ ! -d $(cryven_home)/.config/awesome ]] ; then \
+	cp -f $(current_dir)/.Xmodmap $(cryven_home)
+	cp -f $(current_dir)/.bashrc $(cryven_home)
+	cp -f $(current_dir)/.gitconfig $(cryven_home)
+	cp -f $(current_dir)/.xinitrc $(cryven_home)
+	if [[ ! -d $(cryven_home)/.config/awesome ]] ; then \
 		mkdir -p $(cryven_home)/.config/awesome; \
 	fi
-	@if [[ -d $(cryven_home)/.config/terminator ]] ; then \
+	if [[ -d $(cryven_home)/.config/terminator ]] ; then \
 		mkdir -p $(cryven_home)/.config/terminator; \
 	fi
-	@cp $(current_dir)/config $(cryven_home)/.config/terminator/config
-	@cp $(current_dir)/rc.lua $(cryven_home)/.config/awesome/rc.lua
-	@cd $(cryven_home)/.config/awesome && git clone https://github.com/streetturtle/awesome-wm-widgets.git
-	@chown -R cryven:users $(cryven_home)/.config # Note: 把权限给回 cryven 用户
+	cp -f $(current_dir)/config $(cryven_home)/.config/terminator/config
+	cp -f $(current_dir)/rc.lua $(cryven_home)/.config/awesome/rc.lua
+	cd -f $(cryven_home)/.config/awesome && git clone https://github.com/streetturtle/awesome-wm-widgets.git
+	chown -R cryven:users $(cryven_home)/.config # Note: 把权限给回 cryven 用户
 
 $(GRUB):
 	@$(PACMAN) $(PACMAN_OPTION) $(GRUB_NAME)
@@ -124,14 +125,17 @@ $(GRUB):
 grub: $(GRUB)
 	@echo ''
 	@echo 'Install grub'
-	@grub-install --target=i386-pc --recheck $(dev_sdx)
-	@grub-mkconfig -o /boot/grub/grub.cfg
+	grub-install --target=i386-pc --recheck $(dev_sdx)
+	grub-mkconfig -o /boot/grub/grub.cfg
 
 $(YAY):
 	@echo ''
 	@echo 'Install yay.'
-	@git clone https://aur.archlinux.org/yay.git /tmp/yay
-	@cd /tmp/yay && makepkg -si
+	if [[ -d /tmp/yay ]] ; then \
+		rm -rf /tmp/yay; \
+	fi
+	git clone https://aur.archlinux.org/yay.git /tmp/yay
+	cd /tmp/yay && makepkg -si
 
 install: aur_tools vim
 
@@ -170,6 +174,6 @@ $(AG):
 vim: $(vim_dep)
 	@echo ''
 	@echo 'Vim config.'
-	@cp -rf $(current_dir)/.vim ~
-	@cp -f $(current_dir)/.vimrc ~
-	@vim +:PlugInstall
+	cp -rf $(current_dir)/.vim ~
+	cp -f $(current_dir)/.vimrc ~
+	vim +:PlugInstall
