@@ -20,3 +20,4 @@ $ make grub
 ```bash
 $ make install
 ```
+安装完成之后，重新打开 `terminator` 或者重启系统.
