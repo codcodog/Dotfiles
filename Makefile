@@ -148,7 +148,7 @@ $(NPM):
 	@echo ''
 	@echo 'Install $(NPM_NAME).'
 	@$(YAY) $(PACMAN_OPTION) $(NPM_NAME)
-	@$(NPM) install instant-markdown-d
+	@$(NPM) install -g instant-markdown-d
 
 $(GVIM):
 	@echo ''
