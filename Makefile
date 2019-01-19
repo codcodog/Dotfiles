@@ -31,7 +31,7 @@ NPM_NAME = npm nodejs
 GVIM = $(prefix)/gvim
 GVIM_NAME = gvim
 
-FZF = ~/.fzf/bin/fzf
+FZF = $(prefix)/fzf
 FZF_NAME = fzf
 
 AG = $(prefix)/ag
