@@ -17,6 +17,7 @@
 PACMAN = pacman
 PACMAN_OPTION = -S
 
+SUDO = sudo
 YAY = $(prefix)/yay
 
 prefix ?= /usr/bin
@@ -132,7 +133,7 @@ install: aur_tools vim
 
 .PHONY: aur_tools
 aur_tools: $(YAY)
-	@$(YAY) $(PACMAN_OPTION) $(aur_tools)
+	@$(SUDO) $(YAY) $(PACMAN_OPTION) $(aur_tools)
 
 $(GIT):
 	@echo ''
