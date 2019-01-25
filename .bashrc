@@ -30,5 +30,6 @@ parse_branch()
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 red="\[\e[1;31m\]"
+cyan="\[\e[1;93m\]"
 color_end="\[\e[m\]"
-PS1="${red}\u@\h \W \$(parse_branch)\$ ${color_end}"
+PS1="${red}\u@\h${color_end} ${cyan}\W${color_end} ${red}\$(parse_branch)\$ ${color_end}"
