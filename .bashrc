@@ -24,12 +24,13 @@ HISTFILESIZE=5000
 # parse git branch
 parse_branch()
 {
-  git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /'
+  git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/「\1」/'
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-red="\[\e[1;31m\]"
-cyan="\[\e[1;93m\]"
+red="\[\e[1;38;5;124m\]"
+cyan="\[\e[1;38;5;49m\]"
+yellow="\[\e[1;38;5;227m\]"
 color_end="\[\e[m\]"
-PS1="${red}\u@\h${color_end} ${cyan}\W${color_end} ${red}\$(parse_branch)\$ ${color_end}"
+PS1="${red}\u@\h${color_end} ${cyan}\W${color_end} ${yellow}\$(parse_branch) \\$ ${color_end}"
