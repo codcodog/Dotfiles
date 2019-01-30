@@ -49,7 +49,7 @@ tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nou
 				terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin \
 				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat ctags feh \
 				arandr
-aur_tools ?= xmind okular mycli
+aur_tools ?= xmind okular mycli office-code-pro
 
 .PHONY: all
 all: $(init_config)
