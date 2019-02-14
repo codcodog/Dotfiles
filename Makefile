@@ -48,7 +48,7 @@ dev_sdx ?= /dev/sda # 硬盘
 tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau awesome \
 				terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin \
 				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat ctags feh \
-				arandr openssh
+				arandr openssh flameshot
 aur_tools ?= xmind okular mycli office-code-pro
 
 .PHONY: all
