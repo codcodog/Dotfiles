@@ -48,7 +48,7 @@ dev_sdx ?= /dev/sda # 硬盘
 tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau awesome \
 				terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin \
 				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat ctags feh \
-				arandr openssh
+				arandr openssh docker
 aur_tools ?= xmind okular mycli office-code-pro
 
 .PHONY: all
@@ -138,12 +138,25 @@ $(YAY):
 	git clone https://aur.archlinux.org/yay.git /tmp/yay
 	cd /tmp/yay && makepkg -si
 
-install: aur_tools vim
+install: aur_tools docker_compose vim
 
 .PHONY: aur_tools
 aur_tools: $(YAY)
 	@$(YAY) $(PACMAN_OPTION) $(aur_tools)
 	@systemctl restart openntpd # restart to adjust time.
+
+.PHONY: docker_config
+docker_config:
+	@echo ''
+	@echo 'Docker config for no sudo.'
+	@sudo groupadd docker || true
+	@sudo usermod -aG docker $$USER
+
+.PHONY: docker_compose
+docker_compose: docker_config
+	@echo ''
+	@echo 'Docker compose install.'
+	@sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 $(GIT):
 	@echo ''
