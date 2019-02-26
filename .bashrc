@@ -17,9 +17,9 @@ alias phpcs='phpcs fix -v --diff --diff-format=udiff --dry-run'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-HISTCONTROL=ignoreboth
-HISTSIZE=5000
-HISTFILESIZE=5000
+export HISTCONTROL=ignoreboth
+export HISTSIZE=5000
+export HISTFILESIZE=5000
 
 # parse git branch
 parse_branch()
