@@ -131,6 +131,7 @@ set statusline+=%5P                                         " Percentage through
 iabbrev #s // ------------------------------------------------------------------------<ESC>
 iabbrev ??? <?php<CR>/**<CR>@Author Cryven<CR>@Date   <ESC>:r! date "+\%Y-\%m-\%d \%H:\%M:\%S"<CR>kJA<CR><ESC>S*/<CR><CR><ESC>
 iabbrev @@ /** @var **/<ESC>3hi
+iabbrev #!! #!/usr/bin/env bash
 "
 " ============= 缩写配置 END =============
 
