@@ -17,7 +17,7 @@ alias phpcs='phpcs fix -v --diff --diff-format=udiff --dry-run'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-HISTCONTROL=ignoreboth:erasedups
+HISTCONTROL=ignoreboth
 HISTSIZE=5000
 HISTFILESIZE=5000
 
