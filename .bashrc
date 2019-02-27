@@ -18,8 +18,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 export HISTSIZE=5000
-export HISTFILESIZE=5000
+export HISTFILESIZE=10000
 export HISTCONTROL=ignoreboth
+export HISTIGNORE='ls:ll:pwd:history'
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # parse git branch
 parse_branch()
