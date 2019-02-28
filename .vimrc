@@ -6,9 +6,9 @@
 " License: Vim License
 "
 """""""""""""""""""""""""""""""""""""""""""""
-
-
-
+"
+"
+"
 " ============= Plug 配置 END =============
 "
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -59,9 +59,9 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end() 
 "
 " ============= Plug 配置 END =============
-
-
-
+"
+"
+"
 " ============= Theme 配置 START ==========
 "
 set termguicolors
@@ -90,9 +90,9 @@ augroup DIY
 augroup END
 "
 " ============= Theme 配置 END =============
-
-
-
+"
+"
+"
 " ============= Options 配置 START =============
 "
 set expandtab                " 设置tab键换空格
@@ -123,20 +123,9 @@ set statusline+=%8(%l,%c%)                                  " line and column
 set statusline+=%5P                                         " Percentage through file of displayed window
 "
 " ============= Options 配置 END =============
-
-
-
-" ============= 缩写配置 START =============
 "
-iabbrev #s // ------------------------------------------------------------------------<ESC>
-iabbrev ??? <?php<CR>/**<CR>@Author Cryven<CR>@Date   <ESC>:r! date "+\%Y-\%m-\%d \%H:\%M:\%S"<CR>kJA<CR><ESC>S*/<CR><CR><ESC>
-iabbrev @@ /** @var **/<ESC>3hi
-iabbrev #! #!/bin/bash<CR>#<CR># A brief overview of script.<ESC>FA
 "
-" ============= 缩写配置 END =============
-
-
-
+"
 " ============= 映射键 配置 START =============
 inoremap jj <ESC>
 inoremap <C-b> <Left>
@@ -161,9 +150,9 @@ tnoremap <Esc> <C-W>N
 noremap <silent><C-]> :<C-u>MultiTag <C-r><C-w><CR>
 "
 " ============= 映射键 配置 END =============
-
-
-
+"
+"
+"
 " ============= <LEADER> 配置 START =============
 "
 let mapleader=','   " 设置 <leader> 键
@@ -186,9 +175,9 @@ nnoremap <Leader>a :<C-u>Ag <C-r><C-w><CR>
 noremap <silent> <leader>h :History<CR>
 "
 " ============= <LEADER> 配置 END ==============
-
-
-
+"
+"
+"
 " ============= 自定义命令配置 START =============
 "
 " buffers management
@@ -238,9 +227,9 @@ endfunction
 command! -bang -nargs=* Ag call fzf#vim#ag_raw(<q-args>, <bang>0)
 "
 " ============= 自定义命令配置 END =============
-
-
-
+"
+"
+"
 " ============= 插件配置 START =============
 "
 " fzf
@@ -271,9 +260,9 @@ syntax on                    " 开启文件类型侦测
 let g:indentLine_enabled = 0 " 默认关闭
 "
 " ============= 插件配置 END =============
-
-
-
+"
+"
+"
 " ============= 自定义配置 START =============
 "
 " PHP 函数补全
@@ -340,3 +329,12 @@ augroup filetype_python
 augroup END
 "
 " ============= 自定义配置 START =============
+"
+"
+"
+" ============= 缩写配置 START =============
+"
+source ~/.vim/snippets/php.vim
+source ~/.vim/snippets/bash.vim
+"
+" ============= 缩写配置 END =============
