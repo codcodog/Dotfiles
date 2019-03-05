@@ -12,5 +12,6 @@ function! s:snippets()
     inoreabbrev while while () {<CR>}<ESC>kf)
     inoreabbrev switch switch () {<CR>}<ESC>Ocase word:<ESC>>>osomething;<ESC>obreak;<ESC>odefault:<ESC>osomething;<ESC>5k0f);
     inoreabbrev foreach foreach ($result as $v) {<CR>}<ESC>kfr;
+    inoreabbrev for for ($i = 0; $i < $length; $i++) {<CR>}<ESC>kfi
     inoreabbrev try try {<CR>}<ESC>Osomething;<ESC>ja catch (\Exception $e) {<CR>}<ESC>Osomething;<ESC>2k^
 endfunction
