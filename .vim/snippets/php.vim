@@ -14,5 +14,5 @@ function! s:snippets()
     inoreabbrev foreach foreach ($result as $v) {<CR>}<ESC>kfr;
     inoreabbrev for for ($i = 0; $i < $length; $i++) {<CR>}<ESC>kfi
     inoreabbrev try try {<CR>}<ESC>Osomething;<ESC>ja catch (\Exception $e) {<CR>}<ESC>Osomething;<ESC>2k^
-    inoreabbrev function function name()<CR>{<CR>}<ESC>2kfab
+    inoreabbrev function function name()<CR>{<CR>}<ESC>2k$Fn
 endfunction
