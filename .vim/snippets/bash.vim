@@ -5,6 +5,6 @@ augroup bash
 augroup END
 
 function! s:snippets()
-    inoreabbrev #! #!/bin/bash<CR>#<CR># A brief overview of script.<ESC>FA
+    inoreabbrev <buffer> #! #!/bin/bash<CR>#<CR># A brief overview of script.<ESC>FA
 endfunction
 
