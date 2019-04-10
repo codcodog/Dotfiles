@@ -21,6 +21,10 @@ export HISTFILESIZE=10000
 export HISTCONTROL=ignoreboth
 export HISTIGNORE='ls:ll:pwd:history'
 
+# config go path
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH
+
 # parse git branch
 parse_branch()
 {
