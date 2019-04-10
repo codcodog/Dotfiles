@@ -23,7 +23,7 @@ export HISTIGNORE='ls:ll:pwd:history'
 
 # config go path
 export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOPATH/bin
 
 # parse git branch
 parse_branch()
