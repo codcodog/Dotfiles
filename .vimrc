@@ -1,7 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""
 " Cryven's vimrc
 "
-" Blog: https://github.com/codcodog/Blog/issues
+" Copyright (c) 2019 Cryven Codcodog
+"
 " Note: 此配置仅为个人使用, 欢迎参考和交流.
 " License: Vim License
 "
@@ -42,8 +43,8 @@ Plug 'mattn/emmet-vim', {'for': ['html', 'vue']}
 " 查看目录结构
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
-" 源码函数列表
-Plug 'vim-scripts/taglist.vim', {'on': 'TlistToggle'}
+" 函数列表
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 
 " fuzzy finding
 Plug 'junegunn/fzf.vim'
@@ -55,6 +56,10 @@ Plug 'posva/vim-vue'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+" go
+Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+"
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end() 
 "
@@ -148,6 +153,7 @@ cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
 tnoremap <Esc> <C-W>N
 noremap <silent><C-]> :<C-u>MultiTag <C-r><C-w><CR>
+noremap <silent><C-p> <C-x><C-o>
 "
 " ============= 映射键 配置 END =============
 "
@@ -243,13 +249,11 @@ nnoremap <silent> <space><space> :Buffers<CR>
 noremap <silent> <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeQuitOnOpen = 1
 
-" Taglist
-let Tlist_Show_One_File           = 1           " To display the tags for only the current active buffer
-let Tlist_Close_On_Select         = 1           " close the taglist window when a file or tag is selected
-let Tlist_GainFocus_On_ToggleOpen = 1           " the cursor moves to the taglist window after opening the taglist window.
-let Tlist_Auto_Update             = 1           " When a new file is edited, the tags defined in the file are automatically processed and added to the taglist
-let tlist_php_settings            = 'php;c:class;f:function' " 仅显示函数和类，不显示变量
-noremap <silent> <leader>t :TlistToggle<CR>
+" tagbar
+let g:tagbar_left = 1
+let g:tagbar_autoclose = 1
+let g:tagbar_show_linenumbers = 2
+noremap <silent> <leader>t :TagbarToggle<CR>
 
 " Python-syntax
 let python_highlight_all = 1
@@ -258,6 +262,15 @@ syntax on                    " 开启文件类型侦测
 
 " indentLine 
 let g:indentLine_enabled = 0 " 默认关闭
+
+" go
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+au FileType go inoremap <C-p> <C-x><C-o>
+set completeopt-=preview
 "
 " ============= 插件配置 END =============
 "
