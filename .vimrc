@@ -269,7 +269,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
-au FileType go inoremap <C-p> <C-x><C-o>
+au FileType go inoremap <C-o> <C-x><C-o>
 set completeopt-=preview
 "
 " ============= 插件配置 END =============
@@ -280,7 +280,13 @@ set completeopt-=preview
 "
 " PHP 函数补全
 function! s:AddPHPFuncListCodcodog()
-    set dictionary-=$HOME/.vim/doc/function.txt dictionary+=$HOME/.vim/doc/function.txt
+    set dictionary-=$HOME/.vim/doc/php.txt dictionary+=$HOME/.vim/doc/php.txt
+    set complete-=k complete+=k
+endfunction
+
+" go 补全
+function! s:GoCompletionCodcodog()
+    set dictionary-=$HOME/.vim/doc/go.txt dictionary+=$HOME/.vim/doc/go.txt
     set complete-=k complete+=k
 endfunction
 
@@ -322,6 +328,11 @@ endfunction
 augroup filetype_php
     autocmd!
     autocmd FileType php call <SID>AddPHPFuncListCodcodog()
+augroup END 
+
+augroup filetype_go
+    autocmd!
+    autocmd FileType go call <SID>GoCompletionCodcodog()
 augroup END 
 
 " Shell 文件，缩进修改为2个空格
