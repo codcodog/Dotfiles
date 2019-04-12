@@ -254,6 +254,7 @@ let g:tagbar_left = 1
 let g:tagbar_autoclose = 1
 let g:tagbar_show_linenumbers = 2
 noremap <silent> <leader>t :TagbarToggle<CR>
+noremap <silent> <leader>f :BTags<CR>
 
 " Python-syntax
 let python_highlight_all = 1
@@ -269,6 +270,8 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
+
 au FileType go inoremap <C-o> <C-x><C-o>
 set completeopt-=preview
 "
