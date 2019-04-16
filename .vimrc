@@ -151,7 +151,7 @@ exe "set <A-b>=\eb"
 exe "set <A-f>=\ef"
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
-tnoremap <Esc> <C-W>N
+tnoremap jj <C-W>N
 noremap <silent><C-]> :<C-u>MultiTag <C-r><C-w><CR>
 noremap <silent><C-p> <C-x><C-o>
 "
@@ -173,7 +173,7 @@ vnoremap <silent> <leader>> :Tab/=><CR>
 noremap <silent> <leader>n :noh<CR>
 noremap <silent> <leader>, :vsplit $MYVIMRC<CR>:normal 107Gzz<CR>
 noremap <leader>. :source $MYVIMRC<CR>
-noremap <silent> <leader>c :botright terminal ++rows=15<CR>
+noremap <silent> <leader>c :vertical terminal<CR>
 "
 " ============= <LEADER> 配置 END ==============
 "

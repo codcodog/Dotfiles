@@ -47,3 +47,16 @@ string
 false
 true
 iota
+error
+
+append
+cap
+close
+complex
+copy
+delete
+len
+make
+new
+panic
+recover
