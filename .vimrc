@@ -131,7 +131,7 @@ set statusline+=%5P                                         " Percentage through
 "
 "
 "
-" ============= 映射键 配置 START =============
+" =============  BASIC 映射键 配置 START =============
 inoremap jj <ESC>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
@@ -155,7 +155,7 @@ tnoremap <Esc> <C-W>N
 noremap <silent><C-]> :<C-u>MultiTag <C-r><C-w><CR>
 noremap <silent><C-p> <C-x><C-o>
 "
-" ============= 映射键 配置 END =============
+" ============= BASIC 映射键 配置 END =============
 "
 "
 "
@@ -174,11 +174,6 @@ noremap <silent> <leader>n :noh<CR>
 noremap <silent> <leader>, :vsplit $MYVIMRC<CR>:normal 107Gzz<CR>
 noremap <leader>. :source $MYVIMRC<CR>
 noremap <silent> <leader>c :botright terminal ++rows=15<CR>
-
-" fzf -> Ag
-nnoremap <Leader>a :<C-u>Ag <C-r><C-w><CR>
-" fzf -> History
-noremap <silent> <leader>h :History<CR>
 "
 " ============= <LEADER> 配置 END ==============
 "
@@ -242,12 +237,14 @@ command! -bang -nargs=* Ag call fzf#vim#ag_raw(<q-args>, <bang>0)
 set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~20%' }
 
+nnoremap <Leader>a :<C-u>Ag <C-r><C-w><CR>
+nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <space><space> :Buffers<CR>
 
 " NERDTree
-noremap <silent> <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeQuitOnOpen = 1
+noremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " tagbar
 let g:tagbar_left = 1
@@ -272,6 +269,8 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_function_parameters = 1
 let g:go_def_mapping_enabled = 0
+
+noremap <silent> <leader>g :GoDef<CR>
 
 au FileType go inoremap <C-o> <C-x><C-o>
 set completeopt-=preview
