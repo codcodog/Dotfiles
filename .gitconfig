@@ -10,3 +10,4 @@
 	email = codcodog@gmail.com
 [core]
     editor = vim
+    fileMode = false
