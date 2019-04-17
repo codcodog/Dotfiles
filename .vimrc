@@ -371,5 +371,6 @@ augroup END
 "
 source ~/.vim/snippets/php.vim
 source ~/.vim/snippets/bash.vim
+source ~/.vim/snippets/go.vim
 "
 " ============= 缩写配置 END =============
