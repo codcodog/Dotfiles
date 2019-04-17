@@ -59,6 +59,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " go
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+
+Plug 'Valloric/YouCompleteMe'
 "
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end() 
@@ -270,10 +272,16 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_function_parameters = 1
 let g:go_def_mapping_enabled = 0
 
-noremap <silent> <leader>g :GoDef<CR>
+au FileType go noremap <silent> <leader>g :GoDef<CR>
 
-au FileType go inoremap <C-o> <C-x><C-o>
-set completeopt-=preview
+" YCM
+set completeopt=longest,menu
+let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'nerdtree' : 1,
+      \}
 "
 " ============= 插件配置 END =============
 "
