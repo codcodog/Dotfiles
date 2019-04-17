@@ -272,7 +272,7 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_function_parameters = 1
 let g:go_def_mapping_enabled = 0
 
-au FileType go noremap <silent> <leader>g :GoDef<CR>
+au FileType go noremap <silent> gd :GoDef<CR>
 
 " YCM
 set completeopt=longest,menu
