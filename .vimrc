@@ -282,6 +282,8 @@ let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'nerdtree' : 1,
       \}
+let g:ycm_auto_trigger = 0
+let g:ycm_key_invoke_completion = '<C-o>'
 "
 " ============= 插件配置 END =============
 "
