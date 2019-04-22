@@ -153,7 +153,7 @@ exe "set <A-b>=\eb"
 exe "set <A-f>=\ef"
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
-tnoremap jj <C-W>N
+tnoremap <ESC> <C-W>N
 noremap <silent><C-]> :<C-u>MultiTag <C-r><C-w><CR>
 noremap <silent><C-p> <C-x><C-o>
 "
