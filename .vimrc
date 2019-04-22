@@ -246,6 +246,7 @@ nnoremap <silent> <space><space> :Buffers<CR>
 
 " NERDTree
 let g:NERDTreeQuitOnOpen = 1
+let NERDTreeShowLineNumbers = 1
 noremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " tagbar
