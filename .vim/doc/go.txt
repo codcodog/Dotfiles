@@ -1,3 +1,4 @@
+### MISC
 package
 main
 break        
@@ -25,7 +26,6 @@ for
 import       
 return       
 var
-Println
 uint8
 uint16
 uint32
@@ -49,6 +49,7 @@ true
 iota
 error
 
+### builtin
 append
 cap
 close
@@ -60,3 +61,52 @@ make
 new
 panic
 recover
+
+### fmt
+Fprintf
+Printf
+Println
+Sprintf
+
+### strings
+Index
+Join
+Repeat
+Replace
+ReplaceAll
+Split
+ToLower
+ToUpper
+Trim
+TrimLeft
+TrimRight
+TrimSpace
+
+### json
+Marshal
+Unmarshal
+
+### unicode/utf8
+RuneCountInString
+
+### time
+Sleep
+Second
+Millisecond
+
+### io/ioutil
+ReadDir
+ReadFile
+WriteFile
+
+### log
+Fatal
+
+### strconv
+Atoi
+Itoa
+
+### os
+Exit
+Getenv
+Setenv
