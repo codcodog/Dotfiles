@@ -253,6 +253,7 @@ noremap <silent> <C-n> :NERDTreeToggle<CR>
 let g:tagbar_left = 1
 let g:tagbar_autoclose = 1
 let g:tagbar_show_linenumbers = 2
+let g:tagbar_sort = 0
 noremap <silent> <leader>t :TagbarToggle<CR>
 noremap <silent> <leader>f :BTags<CR>
 
@@ -274,6 +275,7 @@ let g:go_highlight_function_parameters = 1
 let g:go_def_mapping_enabled = 0
 
 au FileType go noremap <silent> gd :GoDef<CR>
+au FileType go noremap <silent> <leader>i  :<C-u>GoImport <C-r><C-w><CR>
 
 " YCM
 set completeopt=longest,menu
