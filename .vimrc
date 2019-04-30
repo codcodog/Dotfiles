@@ -275,7 +275,7 @@ let g:go_highlight_function_parameters = 1
 let g:go_def_mapping_enabled = 0
 
 au FileType go noremap <silent> gd :GoDef<CR>
-au FileType go noremap <silent> <leader>i  :<C-u>GoImport <C-r><C-w><CR>
+au FileType go inoremap <silent> <C-j> <ESC>3b:<C-u>GoImport <C-r><C-w><CR>zz3ea
 
 " YCM
 set completeopt=longest,menu
