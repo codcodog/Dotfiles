@@ -276,6 +276,7 @@ let g:go_def_mapping_enabled = 0
 
 au FileType go noremap <silent> gd :GoDef<CR>
 au FileType go inoremap <silent> <C-j> <ESC>3b:<C-u>GoImport <C-r><C-w><CR>zz3ea
+au FileType go cnoremap GG <C-u>GoImport 
 
 " YCM
 set completeopt=longest,menu
@@ -285,8 +286,8 @@ let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'nerdtree' : 1,
       \}
-let g:ycm_auto_trigger = 0
-let g:ycm_key_invoke_completion = '<C-o>'
+let g:ycm_auto_trigger = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 "
 " ============= 插件配置 END =============
 "
