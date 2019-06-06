@@ -308,6 +308,12 @@ function! s:GoCompletionCodcodog()
     set complete-=k complete+=k
 endfunction
 
+" python 补全
+function! s:PythonCompletionCodcodog()
+    set dictionary-=$HOME/.vim/doc/python.txt dictionary+=$HOME/.vim/doc/python.txt
+    set complete-=k complete+=k
+endfunction
+
 " 保留当前可见 buffer, wipe out 其他不可见 buffers
 function! s:OnlyCurrentBufferCodcodog()
     " list of *all* buffer numbers
@@ -362,12 +368,14 @@ augroup filetype_sh
 augroup END
 
 " python 文件，可视化缩进
+" 加载补全
 augroup filetype_python
     autocmd!
     " indentLine 插件配置
     autocmd FileType python
                 \ let g:indentLine_enabled=1 |
                 \ let g:indentLine_char='·'
+    autocmd FileType python call <SID>PythonCompletionCodcodog()
 augroup END
 "
 " ============= 自定义配置 START =============

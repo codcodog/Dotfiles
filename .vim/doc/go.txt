@@ -1,4 +1,5 @@
 ### MISC
+debug
 nil
 package
 main
@@ -18,7 +19,6 @@ goto
 package      
 switch
 const        
-fallthrough  
 if           
 range        
 type
@@ -124,3 +124,14 @@ NewScanner
 cancel
 WithCancel
 Background
+
+### regexp
+MustCompile
+
+### bytes
+Buffer
+
+### testing
+assert
+Equal
+EqualError
