@@ -1,3 +1,6 @@
 class
 import
 print
+raise
+SystemExit
+self
