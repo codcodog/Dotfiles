@@ -270,6 +270,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
+    -- 执行 xps13 触摸板脚本（启用/禁用）
+    awful.key({}, "F1", function () awful.util.spawn_with_shell('~/touchpad.sh') end,
+    {description = "enable/disable xps13 touchpad", group = "client"}),
+
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
