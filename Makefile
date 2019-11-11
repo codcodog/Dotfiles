@@ -13,6 +13,8 @@
 # 	- 分区若是 gpt 分区，/boot -> fat32
 # 	- 分区若是 dos 分区，则直接安装 grub 即可
 # 3. 初步配置完成之后，重启登录 cryven 帐号，执行：`make install`
+# 4. Vim YouCompleteMe 插件只是下载源码回来，并没进行安装
+#    详情参考：https://github.com/ycm-core/YouCompleteMe#linux-64-bit
 
 PACMAN = pacman
 PACMAN_OPTION = -S --noconfirm
@@ -193,5 +195,3 @@ vim: $(vim_dep)
 	cp -rf $(current_dir)/.vim ~
 	cp -f $(current_dir)/.vimrc ~
 	vim +:PlugInstall
-	@cd ~/.vim/plugged/YouCompleteMe && \
-		python3 install.py --clang-completer --go-completer
