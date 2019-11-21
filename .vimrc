@@ -254,6 +254,35 @@ let g:tagbar_left = 1
 let g:tagbar_autoclose = 1
 let g:tagbar_show_linenumbers = 2
 let g:tagbar_sort = 0
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
 noremap <silent> <leader>t :TagbarToggle<CR>
 noremap <silent> <leader>f :BTags<CR>
 
@@ -273,6 +302,7 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_function_parameters = 1
 let g:go_def_mapping_enabled = 0
+" let g:go_fmt_autosave = 0 " 关闭自动格式化代码
 
 au FileType go noremap <silent> gd :GoDef<CR>
 au FileType go inoremap <silent> <C-j> <ESC>3b:<C-u>GoImport <C-r><C-w><CR>zz3ea
