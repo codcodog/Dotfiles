@@ -221,7 +221,8 @@ endfunction
 function! s:tagsink(tag)
     let tmp  = split(a:tag, '|')
     let file = tmp[0]
-    let cmd  = tmp[1]
+    " 关闭 pattern magic, 防止函数有特殊字符没法匹配，例如：`* .` 这些字符
+    let cmd  = '/\M'.tmp[1][1:]
 
     execute 'silent! e '.file.'|set ws|silent! '.cmd.'|normal! zz'
 endfunction
