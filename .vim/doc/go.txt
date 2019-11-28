@@ -135,3 +135,6 @@ Buffer
 assert
 Equal
 EqualError
+
+### custome
+exists
