@@ -297,14 +297,17 @@ let g:indentLine_enabled = 0 " 默认关闭
 
 " go
 let g:go_fmt_command = "goimports"
+" let g:go_fmt_fail_silently = 1
+" let g:go_fmt_autosave = 0 " 关闭自动格式化代码
+
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_function_parameters = 1
+
 let g:go_def_mapping_enabled = 0
 let g:go_def_mode = 'godef'
-" let g:go_fmt_autosave = 0 " 关闭自动格式化代码
 
 au FileType go noremap <silent> gd :GoDef<CR>
 au FileType go inoremap <silent> <C-j> <ESC>3b:<C-u>GoImport <C-r><C-w><CR>zz3ea
