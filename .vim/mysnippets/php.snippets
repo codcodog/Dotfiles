@@ -1,0 +1,45 @@
+# php header
+snippet ? "<?php ..."
+<?php
+/**
+ * @Author Cryven
+ * @Email  codcodog@gmail.com
+ * @Date   `date +'%Y-%m-%d %H:%M:%S'`
+ */
+
+${0}
+endsnippet
+
+# separate line
+snippet #s "// ---"
+// ------------------------------------------------------------------------
+
+${0}
+endsnippet
+
+# function define
+snippet function "function Name() { ... }"
+function ${1:Name}(params)
+{
+}
+endsnippet
+
+# class function define
+snippet public "public function Name() { ... }"
+public function ${1:Name}()
+{
+}
+endsnippet
+
+# class define
+snippet class "class Name { ... }"
+class ${1:Name}
+{
+}
+endsnippet
+
+# if
+snippet if "if (condition) { ... }"
+if (${1:condition}) {
+}
+endsnippet

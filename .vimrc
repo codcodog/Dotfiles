@@ -52,6 +52,8 @@ Plug 'junegunn/fzf.vim'
 " vue
 Plug 'posva/vim-vue'
 
+Plug 'SirVer/ultisnips'
+
 " theme
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -324,6 +326,12 @@ let g:ycm_filetype_blacklist = {
 let g:ycm_auto_trigger = 0
 let g:ycm_key_invoke_completion = '<C-o>'
 "let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+" UltiSnips 
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/mysnippets']
 "
 " ============= 插件配置 END =============
 "
@@ -414,13 +422,3 @@ augroup filetype_python
 augroup END
 "
 " ============= 自定义配置 START =============
-"
-"
-"
-" ============= 缩写配置 START =============
-"
-source ~/.vim/snippets/php.vim
-source ~/.vim/snippets/bash.vim
-source ~/.vim/snippets/go.vim
-"
-" ============= 缩写配置 END =============

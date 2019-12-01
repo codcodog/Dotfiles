@@ -1,0 +1,16 @@
+# fmt.Println
+snippet pp "fmt.Println(...)"
+fmt.Println(${1:var})
+endsnippet
+
+# fmt.Printf
+snippet pf "fmt.Printf(...)"
+fmt.Printf("%v \n", ${1:var})
+endsnippet
+
+# error handler
+snippet ee "if err != nil {...}"
+if err != nil {
+	${0}
+}
+endsnippet
