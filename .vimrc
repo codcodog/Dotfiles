@@ -242,7 +242,7 @@ command! -bang -nargs=* Ag call fzf#vim#ag_raw(<q-args>, <bang>0)
 set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~20%' }
 
-nnoremap <Leader>a :<C-u>Ag <C-r><C-w><CR>
+nnoremap <Leader>a :<C-u>Ag -w <C-r><C-w><CR>
 nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <space><space> :Buffers<CR>
