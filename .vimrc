@@ -339,6 +339,10 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/mysnippets']
 "
 " ============= 自定义配置 START =============
 "
+" 字典补全
+set dictionary+=$HOME/.vim/doc/dict.txt
+set complete+=k
+
 " PHP 函数补全
 function! s:AddPHPFuncListCodcodog()
     set dictionary-=$HOME/.vim/doc/php.txt dictionary+=$HOME/.vim/doc/php.txt
