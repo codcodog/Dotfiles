@@ -1,2 +1,6 @@
 omitempty
 exists
+invalid
+success
+message
+status
