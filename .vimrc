@@ -60,7 +60,6 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " go
 Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 Plug 'Valloric/YouCompleteMe'
 "
@@ -225,6 +224,7 @@ function! s:tagsink(tag)
     let file = tmp[0]
     " 关闭 pattern magic, 防止函数有特殊字符没法匹配，例如：`* .` 这些字符
     let cmd  = '/\M'.tmp[1][1:]
+    echom cmd
 
     execute 'silent! e '.file.'|set ws|silent! '.cmd.'|normal! zz'
 endfunction
