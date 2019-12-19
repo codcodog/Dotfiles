@@ -324,6 +324,7 @@ let g:ycm_filetype_blacklist = {
       \ 'nerdtree' : 1,
       \}
 let g:ycm_auto_trigger = 0
+let g:ycm_show_diagnostics_ui = 0
 let g:ycm_key_invoke_completion = '<C-o>'
 "let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
