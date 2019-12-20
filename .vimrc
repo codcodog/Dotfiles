@@ -171,8 +171,6 @@ noremap <silent> <leader>v :vsp<CR>
 noremap <silent> <leader>s :sp<CR><C-W>k
 noremap <silent> <leader>q :quit<CR>
 noremap <silent> <leader>d :bw<CR>
-vnoremap <silent> <leader>a :Tab/=<CR>
-vnoremap <silent> <leader>> :Tab/=><CR>
 noremap <silent> <leader>n :noh<CR>
 noremap <silent> <leader>, :vsplit $MYVIMRC<CR>:normal 107Gzz<CR>
 noremap <leader>. :source $MYVIMRC<CR>
@@ -238,10 +236,13 @@ command! -bang -nargs=* Ag call fzf#vim#ag_raw(<q-args>, <bang>0)
 "
 " ============= 插件配置 START =============
 "
+" tabular
+vnoremap <silent> <leader>a :Tab/=<CR>
+vnoremap <silent> <leader>> :Tab/=><CR>
+
 " fzf
 set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~20%' }
-
 nnoremap <Leader>a :<C-u>Ag -w <C-r><C-w><CR>
 nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <C-P> :Files<CR>
@@ -257,7 +258,6 @@ let g:tagbar_left = 1
 let g:tagbar_autoclose = 1
 let g:tagbar_show_linenumbers = 2
 let g:tagbar_sort = 0
-
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -297,7 +297,7 @@ syntax on                    " 开启文件类型侦测
 " indentLine 
 let g:indentLine_enabled = 0 " 默认关闭
 
-" go
+" golang
 let g:go_fmt_command = "goimports"
 " let g:go_fmt_fail_silently = 1
 " let g:go_fmt_autosave = 0 " 关闭自动格式化代码
@@ -310,6 +310,7 @@ let g:go_highlight_function_parameters = 1
 
 let g:go_def_mapping_enabled = 0
 let g:go_def_mode = 'gopls'
+" let g:go_debug=['lsp']
 
 au FileType go noremap <silent> gd :GoDef<CR>
 au FileType go inoremap <silent> <C-j> <ESC>3b:<C-u>GoImport <C-r><C-w><CR>zz3ea
@@ -350,7 +351,7 @@ function! s:AddPHPFuncListCodcodog()
     set complete-=k complete+=k
 endfunction
 
-" go 补全
+" golang 补全
 function! s:GoCompletionCodcodog()
     set dictionary-=$HOME/.vim/doc/go.txt dictionary+=$HOME/.vim/doc/go.txt
     set complete-=k complete+=k
