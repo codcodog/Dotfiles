@@ -15,6 +15,9 @@ alias grep='grep --color=auto'
 alias cat='bat'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias setproxy='export ALL_PROXY=socks5://127.0.0.1:1080'
+alias unsetproxy='unset ALL_PROXY'
+alias myip='curl -i https://ip.cn'
 
 export HISTSIZE=5000
 export HISTFILESIZE=10000
