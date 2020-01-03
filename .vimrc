@@ -242,8 +242,13 @@ vnoremap <silent> <leader>> :Tab/=><CR>
 
 " fzf
 set rtp+=~/.fzf
+
+if executable('ag')
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -U -g ""'
+endif
+
 let g:fzf_layout = { 'down': '~20%' }
-nnoremap <Leader>a :<C-u>Ag -w <C-r><C-w><CR>
+nnoremap <Leader>a :<C-u>Ag -U -w <C-r><C-w><CR>
 nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <space><space> :Buffers<CR>
