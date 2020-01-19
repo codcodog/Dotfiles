@@ -304,7 +304,7 @@ let g:indentLine_enabled = 0 " 默认关闭
 
 " golang
 let g:go_fmt_command = "goimports"
-let g:go_autodetect_gopath = 1
+" let g:go_autodetect_gopath = 1
 " let g:go_fmt_fail_silently = 1
 " let g:go_fmt_autosave = 0 " 关闭自动格式化代码
 
