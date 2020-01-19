@@ -259,7 +259,7 @@ let NERDTreeShowLineNumbers = 1
 noremap <silent> <C-n> :NERDTreeToggle<CR>
 
 " tagbar
-let g:tagbar_left = 1
+let g:tagbar_left = 0
 let g:tagbar_autoclose = 1
 let g:tagbar_show_linenumbers = 2
 let g:tagbar_sort = 0
@@ -304,6 +304,7 @@ let g:indentLine_enabled = 0 " 默认关闭
 
 " golang
 let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
 " let g:go_fmt_fail_silently = 1
 " let g:go_fmt_autosave = 0 " 关闭自动格式化代码
 
