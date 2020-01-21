@@ -88,8 +88,8 @@ augroup DIY
     autocmd!
     autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=#1d1f21
     autocmd ColorScheme * highlight CursorLine ctermbg=NONE guibg=#26292b
-    autocmd WinEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
+    autocmd WinEnter    * setlocal cursorline
+    autocmd WinLeave    * setlocal nocursorline
     autocmd ColorScheme * highlight! link Visual CursorLine
     autocmd InsertEnter * highlight ColorColumn ctermbg=NONE guibg=#1a1b1d
     autocmd InsertLeave * highlight ColorColumn ctermbg=NONE guibg=NONE
