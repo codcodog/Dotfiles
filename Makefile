@@ -118,7 +118,6 @@ config_files: $(cryven_home)
 	fi
 	cp -f $(current_dir)/config $(cryven_home)/.config/terminator/config
 	cp -f $(current_dir)/rc.lua $(cryven_home)/.config/awesome/rc.lua
-	cd $(cryven_home)/.config/awesome && git clone https://github.com/streetturtle/awesome-wm-widgets.git
 	chown -R cryven:users $(cryven_home)/.config # Note: give permission back to cryven.
 
 $(GRUB):
