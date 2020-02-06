@@ -174,7 +174,7 @@ noremap <silent> <leader>d :bw<CR>
 noremap <silent> <leader>n :noh<CR>
 noremap <silent> <leader>, :vsplit $MYVIMRC<CR>:normal 107Gzz<CR>
 noremap <leader>. :source $MYVIMRC<CR>
-noremap <silent> <leader>c :vertical terminal<CR>
+noremap <silent> <leader>c :botright terminal<CR>
 "
 " ============= <LEADER> 配置 END ==============
 "
