@@ -19,10 +19,11 @@ alias setproxy='export ALL_PROXY=socks5://127.0.0.1:1080'
 alias unsetproxy='unset ALL_PROXY'
 alias myip='curl -i https://ip.cn'
 
-export HISTSIZE=5000
-export HISTFILESIZE=10000
+export HISTSIZE=50000
+export HISTFILESIZE=100000
 export HISTCONTROL=ignoreboth
 export HISTIGNORE='ls:ll:pwd:history'
+export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S "
 
 # config go path
 export GOPATH=$HOME/.go
