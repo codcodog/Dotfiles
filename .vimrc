@@ -157,6 +157,7 @@ cnoremap <A-f> <C-Right>
 tnoremap <ESC> <C-W>N
 noremap <silent><C-]> :<C-u>MultiTag <C-r><C-w><CR>
 noremap <silent><C-p> <C-x><C-o>
+vnoremap cc "+y
 "
 " ============= BASIC 映射键 配置 END =============
 "
