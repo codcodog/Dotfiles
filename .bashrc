@@ -21,7 +21,7 @@ alias myip='curl -i https://ip.cn'
 
 export HISTSIZE=50000
 export HISTFILESIZE=100000
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE='ls:ll:pwd:history'
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S "
 
