@@ -323,6 +323,7 @@ au FileType go cnoremap GG <C-u>GoImport
 
 " YCM
 set completeopt=longest,menu
+let g:ycm_auto_hover=''
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_filetype_blacklist = {
