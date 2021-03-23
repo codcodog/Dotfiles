@@ -147,6 +147,7 @@ nnoremap <Right> :vertical resize -2<CR>
 nnoremap <Up> :resize -2<CR>
 nnoremap <Down> :resize +2<CR>
 cnoremap w!! <c-u>w !sudo tee > /dev/null %
+cnoremap jf <c-u>%!python -m json.tool<CR>
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <C-a> <Home>
