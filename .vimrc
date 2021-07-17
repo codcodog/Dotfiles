@@ -252,6 +252,7 @@ endif
 let g:fzf_layout = { 'down': '~20%' }
 nnoremap <Leader>a :<C-u>Ag -U -w <C-r><C-w><CR>
 nnoremap <silent> <leader>h :History<CR>
+nnoremap <Leader>m :Marks<CR>
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <space><space> :Buffers<CR>
 
