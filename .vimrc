@@ -129,6 +129,7 @@ set statusline+=%{toupper(&ff).'·'}                         " file format
 set statusline+=%{toupper(strlen(&fenc)?&fenc:'none')}      " file encoding
 set statusline+=%8(%l,%c%)                                  " line and column
 set statusline+=%5P                                         " Percentage through file of displayed window
+set maxmempattern=9999
 "
 " ============= Options 配置 END =============
 "
