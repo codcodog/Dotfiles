@@ -12,7 +12,7 @@
 # 2. 安装 grub （可选）
 # 	- 分区若是 gpt 分区，/boot -> fat32
 # 	- 分区若是 dos 分区，则直接安装 grub 即可
-# 3. 初步配置完成之后，重启登录 cryven 帐号，执行：`make install`
+# 3. 初步配置完成之后，重启登录 h2O 帐号，执行：`make install`
 # 4. Vim YouCompleteMe 插件只是下载源码回来，并没进行安装
 #    详情参考：https://github.com/ycm-core/YouCompleteMe#linux-64-bit
 
@@ -40,7 +40,7 @@ AG = $(prefix)/ag
 AG_NAME = the_silver_searcher
 
 init_config = set_time set_user set_mirrors install_tools config_files
-cryven_home = /home/cryven
+home = /home/h2O
 vim_dep = $(GIT) $(NPM) $(GVIM) $(FZF) $(AG)
 
 GRUB = $(prefix)/grub
@@ -79,10 +79,10 @@ set_user:
 	@echo ''
 	@echo 'Set password for root.'
 	@passwd
-	useradd -m -g users -G wheel,storage,power -s /bin/bash cryven
+	useradd -m -g users -G wheel,storage,power -s /bin/bash h2O
 	@echo ''
-	@echo 'Set password for cryven'
-	@passwd cryven
+	@echo 'Set password for h2O'
+	@passwd h2O
 	@sed -i '/# %wheel ALL=(ALL) ALL/s/^..//' /etc/sudoers
 
 .PHONY: set_mirrors
@@ -100,25 +100,25 @@ install_tools:
 	@echo 'Install tools.'
 	@$(PACMAN) $(PACMAN_OPTION) $(tools)
 
-$(cryven_home): set_user
+$(home): set_user
 
 .PHONY: config_files
-config_files: $(cryven_home)
+config_files: $(home)
 	@echo ''
 	@echo 'Config tools.'
-	cp -f $(current_dir)/.Xmodmap $(cryven_home)
-	cp -f $(current_dir)/.bashrc $(cryven_home)
-	cp -f $(current_dir)/.gitconfig $(cryven_home)
-	cp -f $(current_dir)/.xinitrc $(cryven_home)
-	@if [[ ! -d $(cryven_home)/.config/awesome ]] ; then \
-		mkdir -p $(cryven_home)/.config/awesome; \
+	cp -f $(current_dir)/.Xmodmap $(home)
+	cp -f $(current_dir)/.bashrc $(home)
+	cp -f $(current_dir)/.gitconfig $(home)
+	cp -f $(current_dir)/.xinitrc $(home)
+	@if [[ ! -d $(home)/.config/awesome ]] ; then \
+		mkdir -p $(home)/.config/awesome; \
 	fi
-	@if [[ ! -d $(cryven_home)/.config/terminator ]] ; then \
-		mkdir -p $(cryven_home)/.config/terminator; \
+	@if [[ ! -d $(home)/.config/terminator ]] ; then \
+		mkdir -p $(home)/.config/terminator; \
 	fi
-	cp -f $(current_dir)/config $(cryven_home)/.config/terminator/config
-	cp -f $(current_dir)/rc.lua $(cryven_home)/.config/awesome/rc.lua
-	chown -R cryven:users $(cryven_home)/.config # Note: give permission back to cryven.
+	cp -f $(current_dir)/config $(home)/.config/terminator/config
+	cp -f $(current_dir)/rc.lua $(home)/.config/awesome/rc.lua
+	chown -R h2O:users $(home)/.config # Note: give permission back to h2O.
 
 $(GRUB):
 	@$(PACMAN) $(PACMAN_OPTION) $(GRUB_NAME)
