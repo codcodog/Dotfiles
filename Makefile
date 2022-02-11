@@ -39,7 +39,7 @@ FZF_NAME = fzf
 AG = $(prefix)/ag
 AG_NAME = the_silver_searcher
 
-init_config = set_time set_user set_mirrors install_tools config_files
+system_config = set_time set_user set_mirrors config_files install_tools 
 user_name = h2O
 home = /home/$(user_name)
 vim_dep = $(GIT) $(NPM) $(GVIM) $(FZF) $(AG)
@@ -55,7 +55,7 @@ tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nou
 aur_tools ?= xmind okular mycli office-code-pro
 
 .PHONY: all
-all: $(init_config)
+all: $(system_config)
 	@echo ''
 	@echo -e '\033[0;31mInitializing Arch System Done, But System Boot Not Installed Yet.\033[0m'
 	@echo -e '\033[0;31mRun `make grub` or install it manually.\033[0m'
