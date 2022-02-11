@@ -12,7 +12,7 @@
 # 2. 安装 grub （可选）
 # 	- 分区若是 gpt 分区，/boot -> fat32
 # 	- 分区若是 dos 分区，则直接安装 grub 即可
-# 3. 初步配置完成之后，重启登录 h2O 帐号，执行：`make install`
+# 3. 初步配置完成之后，重启登录用户帐号，执行：`make install`
 # 4. Vim YouCompleteMe 插件只是下载源码回来，并没进行安装
 #    详情参考：https://github.com/ycm-core/YouCompleteMe#linux-64-bit
 
@@ -40,11 +40,12 @@ AG = $(prefix)/ag
 AG_NAME = the_silver_searcher
 
 init_config = set_time set_user set_mirrors install_tools config_files
-home = /home/h2O
+user_name = h2O
+home = /home/$(user_name)
 vim_dep = $(GIT) $(NPM) $(GVIM) $(FZF) $(AG)
 
-GRUB = $(prefix)/grub
 GRUB_NAME = grub
+GRUB = $(prefix)/$(GRUB_NAME)
 dev_sdx ?= /dev/sda # 硬盘
 
 tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau awesome \
@@ -79,10 +80,10 @@ set_user:
 	@echo ''
 	@echo 'Set password for root.'
 	@passwd
-	useradd -m -g users -G wheel,storage,power -s /bin/bash h2O
+	useradd -m -g users -G wheel,storage,power -s /bin/bash $(user_name)
 	@echo ''
-	@echo 'Set password for h2O'
-	@passwd h2O
+	@echo 'Set password for $(user_name)'
+	@passwd $(user_name)
 	@sed -i '/# %wheel ALL=(ALL) ALL/s/^..//' /etc/sudoers
 
 .PHONY: set_mirrors
@@ -118,7 +119,7 @@ config_files: $(home)
 	fi
 	cp -f $(current_dir)/config $(home)/.config/terminator/config
 	cp -f $(current_dir)/rc.lua $(home)/.config/awesome/rc.lua
-	chown -R h2O:users $(home)/.config # Note: give permission back to h2O.
+	chown -R $(user_name):users $(home)/.config # Note: give permission back to user.
 
 $(GRUB):
 	@$(PACMAN) $(PACMAN_OPTION) $(GRUB_NAME)
