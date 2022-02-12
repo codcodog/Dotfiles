@@ -40,7 +40,7 @@ AG = $(prefix)/ag
 AG_NAME = the_silver_searcher
 
 system_config = set_time set_user set_mirrors config_files install_tools 
-user_name = h2O
+user_name = h2o
 home = /home/$(user_name)
 vim_dep = $(GIT) $(NPM) $(GVIM) $(FZF) $(AG)
 
@@ -48,7 +48,7 @@ GRUB_NAME = grub
 GRUB = $(prefix)/$(GRUB_NAME)
 dev_sdx ?= /dev/sda # 硬盘
 
-tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit xf86-video-nouveau awesome \
+tools ?= iw wpa_supplicant dialog bash-completion xorg xorg-xinit awesome \
 				terminator chromium firefox wqy-microhei fcitx fcitx-im fcitx-configtool fcitx-sunpinyin \
 				shadowsocks-qt5 ranger thunar ntfs-3g gvfs-mtp gvim httpie mysql-workbench bat ctags feh \
 				arandr openssh flameshot docker docker-compose cmake netctl dhcpcd tldr
