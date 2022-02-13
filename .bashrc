@@ -25,6 +25,9 @@ export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE='ls:ll:pwd:history'
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S "
 
+# config go proxy
+GOPROXY=https://goproxy.cn,direct
+
 # config go path
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
