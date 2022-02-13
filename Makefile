@@ -187,4 +187,3 @@ vim: $(vim_dep)
 	@echo 'Vim config.'
 	cp -rf $(current_dir)/.vim ~
 	cp -f $(current_dir)/.vimrc ~
-	vim +:PlugInstall
