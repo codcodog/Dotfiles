@@ -324,6 +324,7 @@ let g:go_highlight_function_parameters = 1
 
 let g:go_def_mapping_enabled = 0
 let g:go_def_mode = 'gopls'
+let g:go_auto_type_info = 0
 " let g:go_debug=['lsp']
 
 au FileType go noremap <silent> gd :GoDef<CR>
