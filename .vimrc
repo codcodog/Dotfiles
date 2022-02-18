@@ -428,7 +428,7 @@ function! s:getMarks()
         return
     endif
 
-    let sourceData = list[1:]
+    let sourceData = reverse(list[1:])
     call fzf#run({'source': sourceData, 'sink': function('s:goToMark'), 'down': '~20%'})
 endfunction
 
