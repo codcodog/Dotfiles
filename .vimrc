@@ -62,6 +62,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'fatih/vim-go', {'for': 'go'}
 
 Plug 'Valloric/YouCompleteMe'
+
+Plug 'codcodog/auto-marks'
 "
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end() 
@@ -178,6 +180,10 @@ noremap <silent> <leader>n :noh<CR>
 noremap <silent> <leader>, :vsplit $MYVIMRC<CR>:normal 107Gzz<CR>
 noremap <leader>. :source $MYVIMRC<CR>
 noremap <silent> <leader>c :botright terminal<CR>
+
+" mark 配置
+nnoremap <silent> mm :AutoMark<CR>
+nnoremap <silent> <leader>m :MarkList<CR>
 "
 " ============= <LEADER> 配置 END ==============
 "
@@ -190,6 +196,7 @@ command! Only  call <SID>OnlyCurrentBufferCodcodog()
 
 " dependent on fzf plugin
 command! -bang -nargs=* MultiTag call <SID>multitag(<q-args>)
+command! -bang MarkList  call <SID>getMarks()
 
 function! s:multitag(query)
     let pattern = '^'.a:query.'$'
@@ -253,7 +260,6 @@ endif
 let g:fzf_layout = { 'down': '~20%' }
 nnoremap <Leader>a :<C-u>Ag -U -w <C-r><C-w><CR>
 nnoremap <silent> <leader>h :History<CR>
-nnoremap <Leader>m :Marks<CR>
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <space><space> :Buffers<CR>
 
@@ -404,6 +410,32 @@ function! s:OnlyCurrentBufferCodcodog()
         " go back to our original tab page
         execute 'tabnext' l:currentTab
     endtry
+endfunction
+
+" 获取 A-Z mark
+" 依赖 auto-marks
+function! s:getMarks()
+    redir => markList
+    silent Marks
+    redir END
+
+    let list = split(markList, "\n")
+    if len(list) <= 1
+        echohl WarningMsg
+        echo 'No Marks'
+        echohl None
+        return
+    endif
+
+    let sourceData = list[1:]
+    call fzf#run({'source': sourceData, 'sink': function('s:goToMark'), 'down': '~20%'})
+endfunction
+
+
+" 跳转到 mark
+function! s:goToMark(mark)
+    let markName = a:mark[1]
+    execute 'silent! normal `'.markName.'|zz'
 endfunction
 
 " PHP 文件，启用补全
