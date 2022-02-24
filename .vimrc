@@ -435,6 +435,10 @@ endfunction
 
 " 跳转到 mark
 function! s:goToMark(mark)
+    if len(a:mark) == 0
+        return
+    endif
+
     let cmd = get({'ctrl-x': 'split',
                  \ 'ctrl-v': 'vertical split'}, a:mark[0], '')
     let markName = a:mark[1][1]
