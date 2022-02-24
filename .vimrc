@@ -429,14 +429,20 @@ function! s:getMarks()
     endif
 
     let sourceData = reverse(list[1:])
-    call fzf#run({'source': sourceData, 'sink': function('s:goToMark'), 'down': '~20%'})
+    call fzf#run(fzf#wrap({'source': sourceData, 'sink*': function('s:goToMark'), 'options':'--expect=ctrl-v,ctrl-x', 'down': '~20%'}))
 endfunction
 
 
 " 跳转到 mark
 function! s:goToMark(mark)
-    let markName = a:mark[1]
-    execute 'silent! normal `'.markName.'|zz'
+    let cmd = get({'ctrl-x': 'split',
+                 \ 'ctrl-v': 'vertical split'}, a:mark[0], '')
+    let markName = a:mark[1][1]
+    if cmd != ''
+        execute cmd.'|silent! normal `'.markName.'|zz'
+    else
+        execute 'silent! normal `'.markName.'|zz'
+    endif
 endfunction
 
 " PHP 文件，启用补全
