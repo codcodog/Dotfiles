@@ -197,6 +197,8 @@ command! Only  call <SID>OnlyCurrentBufferCodcodog()
 " dependent on fzf plugin
 command! -bang -nargs=* MultiTag call <SID>multitag(<q-args>)
 command! -bang MarkList  call <SID>getMarks()
+command! -bang GoImpls  call <SID>goImplements()
+command! -bang GoRefs  call <SID>goReferrers()
 
 function! s:multitag(query)
     let pattern = '^'.a:query.'$'
@@ -331,8 +333,9 @@ let g:go_list_height = 5
 " let g:go_debug=['lsp']
 
 au FileType go noremap <silent> gd :GoDef<CR>
-au FileType go noremap <silent> <leader>i :GoImplements<CR>
-au FileType go noremap <silent> <leader>r :GoReferrers<CR>
+au FileType go noremap <silent> <leader>i :GoImpls<CR>
+au FileType go noremap <silent> <leader>r :GoRefs<CR>
+au FileType go noremap <silent> gd :GoDef<CR>
 au FileType go inoremap <silent> <C-j> <ESC>3b:<C-u>GoImport <C-r><C-w><CR>zz3ea
 au FileType go cnoremap GG <C-u>GoImport 
 
@@ -452,6 +455,22 @@ function! s:goToMark(mark)
     else
         execute 'silent! normal `'.markName.'|zz'
     endif
+endfunction
+
+" go implements
+function! s:goImplements()
+    GoImplements
+    sleep 200m
+    silent! ccl
+    silent cc
+endfunction
+
+" go referrers
+function! s:goReferrers()
+    GoReferrers
+    sleep 200m
+    silent! ccl
+    silent cc
 endfunction
 
 " PHP 文件，启用补全
