@@ -325,9 +325,14 @@ let g:go_highlight_function_parameters = 1
 let g:go_def_mapping_enabled = 0
 let g:go_def_mode = 'gopls'
 let g:go_auto_type_info = 0
+let g:go_doc_popup_window = 1
+let g:go_list_type = "quickfix"
+let g:go_list_height = 5
 " let g:go_debug=['lsp']
 
 au FileType go noremap <silent> gd :GoDef<CR>
+au FileType go noremap <silent> <leader>i :GoImplements<CR>
+au FileType go noremap <silent> <leader>r :GoReferrers<CR>
 au FileType go inoremap <silent> <C-j> <ESC>3b:<C-u>GoImport <C-r><C-w><CR>zz3ea
 au FileType go cnoremap GG <C-u>GoImport 
 
