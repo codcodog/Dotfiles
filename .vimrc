@@ -462,15 +462,14 @@ function! s:goImplements()
     GoImplements
     sleep 200m
     silent! ccl
-    silent cc
+    silent! cc
 endfunction
 
 " go referrers
 function! s:goReferrers()
     GoReferrers
     sleep 200m
-    silent! ccl
-    silent cc
+    silent! cc
 endfunction
 
 " PHP 文件，启用补全
