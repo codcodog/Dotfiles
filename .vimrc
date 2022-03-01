@@ -260,6 +260,7 @@ if executable('ag')
 endif
 
 let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_preview_window = ['right:hidden', 'ctrl-/']
 nnoremap <Leader>a :<C-u>Ag -U -w <C-r><C-w><CR>
 nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <C-P> :Files<CR>
