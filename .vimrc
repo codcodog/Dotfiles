@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""
-" Cryven's vimrc
+" h2O's vimrc
 "
-" Copyright (c) 2019 Cryven Codcodog
+" Copyright (c) 2019 h2O Codcodog
 "
 " Note: 此配置仅为个人使用, 欢迎参考和交流.
 " License: Vim License
